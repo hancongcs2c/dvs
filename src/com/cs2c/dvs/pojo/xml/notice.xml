@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Notice">
+	<!-- 关联映射类 -->
+	<typeAlias alias="notice" type="com.cs2c.dvs.pojo.Notice" />
+
+	<resultMap class="notice" id="NoticeMap">
+		<result property="noticeId" column="notice_id" />
+		<result property="noticeTitle" column="notice_title" />
+		<result property="noticeCredate" column="notice_credate" />
+		<result property="noticeUpdate" column="notice_update" />
+		<result property="noticeAuthor" column="notice_author" />
+		<result property="noticeBody" column="notice_body" />
+	</resultMap>
+
+	<select id="Notice_select">
+		select * from dvs_notice
+	</select>
+	<select id="QueryAllNotice" resultMap="NoticeMap"  resultClass="notice">
+		select * from dvs_notice 
+		order by notice_credate DESC,notice_id DESC
+	</select>
+
+	<insert id="AddNotice" parameterClass="notice">
+		insert into dvs_notice (notice_title,notice_credate,notice_update,notice_author,notice_body) 
+		values (#noticeTitle#,#noticeCredate#,#noticeUpdate#,#noticeAuthor#,#noticeBody#) 
+	</insert>
+
+	<select id="QueryNoticeById" resultMap="NoticeMap" resultClass="notice" parameterClass="int">
+		select * from dvs_notice 
+		where notice_id=#noticeId#
+	</select>
+	
+	<delete id="DeleteNotice" parameterClass="int">
+		delete from dvs_notice where notice_id=#noticeId#
+	</delete>
+	
+	<update id="UpdateNotice" parameterClass="java.util.HashMap">
+		update dvs_notice set 
+		notice_title=#noticeTitle#,notice_update=#noticeUpdate#,
+		notice_author=#noticeAuthor#,notice_body=#noticeBody# 
+		where notice_id=#noticeId#
+	</update> 
+	
+</sqlMap>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="notice" namespace="/notice" extends="quickValidation">
+		
+		<action name="addNotice" class="noticeAction" method="addNotice">
+			<result name="addNotice">/index.jsp</result>
+		</action>
+		
+		<action name="queryAllNotice" class="noticeAction" method="queryAllNotice">
+			<result name="queryAllNotice">/jsp/ajaxdata/ajaxNotice.jsp</result>
+		</action>
+		
+		<action name="queryAllNotice2" class="noticeAction" method="queryAllNotice">
+			<result name="queryAllNotice">/jsp/ajaxdata/ajaxNotice3.jsp</result>
+		</action>
+		
+		<action name="deleteNotice" class="noticeAction" method="deleteNotice">
+			<result name="deleteNotice">/index.jsp</result>
+		</action>
+		
+		<action name="updateNotice" class="noticeAction" method="updateNotice">
+			<result name="updateNotice">/index.jsp</result>
+		</action>
+		
+		<action name="queryNoticeById" class="noticeAction" method="queryNoticeById">
+			<result name="queryNoticeById">/jsp/ajaxdata/ajaxNotice2.jsp</result>
+		</action>
+		
+		<action name="queryNoticeById2" class="noticeAction" method="queryNoticeById">
+			<result name="queryNoticeById">/jsp/ajaxdata/ajaxNotice4.jsp</result>
+		</action>
+		
+	</package>
+</struts>

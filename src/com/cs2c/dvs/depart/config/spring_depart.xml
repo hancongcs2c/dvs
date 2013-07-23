@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="false"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- depart模块配置开始 -->
+	<bean id="departDaoImpl" class="com.cs2c.dvs.dao.impl.DepartDaoImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="departServiceImpl"	class="com.cs2c.dvs.depart.service.impl.DepartServiceImpl">
+		<property name="dao" ref="departDaoImpl" />
+	</bean>
+	<bean id="departAction"	class="com.cs2c.dvs.depart.action.DepartAction">
+		<property name="departService" ref="departServiceImpl" />
+	</bean>
+	<!-- depart模块配置结束 -->
+
+</beans>

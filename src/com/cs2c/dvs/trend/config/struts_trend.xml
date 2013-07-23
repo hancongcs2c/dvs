@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="trend" namespace="/trend" extends="quickValidation">
+		
+		<action name="queryAllTrend" class="trendAction" method="queryAllTrend">
+			<result name="queryAllTrend">/jsp/allTrend.jsp</result>
+		</action>
+		
+		<action name="queryTrByUser" class="trendAction" method="queryTrByUser">
+			<result name="queryTrByUser">/jsp/myboard.jsp</result>
+		</action>
+		<action name="addTrend" class="trendAction" method="addTrend">
+			<result name="addTrend" type="redirectAction">queryAllTrend</result>
+		</action>
+	</package>
+</struts>

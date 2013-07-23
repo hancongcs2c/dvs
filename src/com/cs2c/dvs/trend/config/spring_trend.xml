@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="false"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- trend模块配置开始 -->
+	<bean id="trendDaoImpl" class="com.cs2c.dvs.dao.impl.TrendDaoImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="trendServiceImpl"	class="com.cs2c.dvs.trend.service.impl.TrendServiceImpl">
+		<property name="dao" ref="trendDaoImpl" />
+	</bean>
+	<bean id="trendAction"	class="com.cs2c.dvs.trend.action.TrendAction">
+		<property name="service" ref="trendServiceImpl" />
+	</bean>
+	<!-- trend模块配置结束 -->
+
+</beans>

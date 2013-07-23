@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Com">
+	<!-- 关联映射类 -->
+	<typeAlias alias="com" type="com.cs2c.dvs.pojo.Com" />
+
+	<resultMap class="com" id="ComMap">
+		<result property="comId" column="com_id" />
+		<result property="comName" column="com_name" />
+		<result property="typeId" column="type_id" />
+	</resultMap>
+
+	<select id="QueryAllCom" resultClass="java.util.HashMap">
+		select * from dvs_community c,dvs_type t where 
+		c.type_id = t.type_id
+	</select>
+	
+	<insert id="AddCom" parameterClass="com">
+		insert into dvs_community (com_name,type_id) 
+		values (#comName#,#typeId#) 
+	</insert>
+	
+	<select id="QueryComById" resultClass="java.util.HashMap" parameterClass="int">
+		select * from dvs_community c,dvs_type t where 
+		c.type_id = t.type_id 
+		and com_id=#comId#
+	</select>
+	
+	<delete id="DeleteCom" parameterClass="int">
+		delete from dvs_community where com_id=#comId#
+	</delete>
+	
+	<update id="UpdateCom" parameterClass="com">
+		update dvs_community set com_name=#comName#,type_id=#typeId#  
+		where com_id=#comId#
+	</update>
+	
+</sqlMap>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="false"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- notice模块配置开始 -->
+	<bean id="noticeDaoImpl" class="com.cs2c.dvs.dao.impl.NoticeDaoImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="noticeServiceImpl" class="com.cs2c.dvs.notice.service.impl.NoticeServiceImpl">
+		<property name="dao" ref="noticeDaoImpl" />
+	</bean>
+	<bean id="noticeAction"	class="com.cs2c.dvs.notice.action.NoticeAction">
+		<property name="service" ref="noticeServiceImpl" />
+	</bean>
+	<!-- notice模块配置结束 -->
+
+</beans>

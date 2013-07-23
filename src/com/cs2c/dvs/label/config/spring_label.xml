@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="false"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- label模块配置开始 -->
+	<bean id="labelDaoImpl" class="com.cs2c.dvs.dao.impl.LabelDaoImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="labelServiceImpl"	class="com.cs2c.dvs.label.service.impl.LabelServiceImpl">
+		<property name="dao" ref="labelDaoImpl" />
+	</bean>
+	<bean id="labelAction"	class="com.cs2c.dvs.label.action.LabelAction">
+		<property name="labelService" ref="labelServiceImpl" />
+	</bean>
+	<!-- label模块配置结束 -->
+
+</beans>

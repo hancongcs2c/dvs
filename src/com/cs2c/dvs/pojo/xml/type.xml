@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="type">
+	<!-- 关联映射类 -->
+	<typeAlias alias="type" type="com.cs2c.dvs.pojo.Type" />
+
+	<!-- <resultMap class="type" id="typeMap">
+		<result property="typeId" column="type_id" />
+		<result property="typeName" column="type_name" />
+	</resultMap> -->
+
+	<select id="QueryAllType" resultClass="java.util.HashMap">
+		select * from dvs_type
+	</select>
+	<select id="QueryTypeById" resultClass="java.util.HashMap" parameterClass="int">
+		select * from dvs_type 
+		where type_id=#typeId#
+	</select>
+	
+</sqlMap>

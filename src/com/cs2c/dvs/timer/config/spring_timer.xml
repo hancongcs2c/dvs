@@ -1,0 +1,137 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<bean id="rssBean" class="com.cs2c.dvs.common.RssBean" />
+	<!-- <bean id="htmlBean" class="com.cs2c.dvs.common.HtmlBean" /> -->
+
+	<!-- 配置定时器开始 -->
+
+	<bean id="quartzJob" class="com.cs2c.dvs.timer.QuartzJob"
+		abstract="true">
+		<!-- 配置RssBean的引用 ,因为QuartzJob需要调用RSSBean的解析方法rss -->
+		<property name="rssBean" ref="rssBean" />
+		<!-- <property name="htmlBean" ref="htmlBean" /> -->
+	</bean>
+<!-- openstack -->
+	<bean id="quartzOSNewsJob" class="com.cs2c.dvs.timer.QuartzOSNewsJob"
+		parent="quartzJob" lazy-init="true">
+		<description>openstack定时器任务</description>
+	</bean>
+
+	<bean id="quartzOSNewsDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<description>openstack定时器执行方法</description>
+		<property name="targetObject" ref="quartzOSNewsJob" />
+		<property name="targetMethod" value="work" />
+	</bean>
+
+	<bean id="quartzOSNewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<description>openstack触发器</description>
+		<property name="jobDetail" ref="quartzOSNewsDetail" />
+		<property name="cronExpression" value="0 0 7,19 * * ?" />
+		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
+	</bean>
+<!-- canonical -->
+	<bean id="quartzCNewsJob" class="com.cs2c.dvs.timer.QuartzCNewsJob"
+		parent="quartzJob" lazy-init="true">
+		<description>canonical定时器任务</description>
+	</bean>
+
+	<bean id="quartzCNewsDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<description>canonical定时器执行方法</description>
+		<property name="targetObject" ref="quartzCNewsJob" />
+		<property name="targetMethod" value="work" />
+	</bean>
+
+	<bean id="quartzCNewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<description>canonical触发器</description>
+		<property name="jobDetail" ref="quartzCNewsDetail" />
+		<property name="cronExpression" value="0 0 8,20 * * ?" />
+		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
+	</bean>
+	
+<!-- Eucalyptus -->
+	<bean id="quartzENewsJob" class="com.cs2c.dvs.timer.QuartzENewsJob"
+		parent="quartzJob" lazy-init="true">
+		<description>canonical定时器任务</description>
+	</bean>
+
+	<bean id="quartzENewsDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<description>Eucalyptus定时器执行方法</description>
+		<property name="targetObject" ref="quartzENewsJob" />
+		<property name="targetMethod" value="work" />
+	</bean>
+
+	<bean id="quartzENewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<description>Eucalyptus触发器</description>
+		<property name="jobDetail" ref="quartzENewsDetail" />
+		<property name="cronExpression" value="0 0 9,21 * * ?" />
+		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
+	</bean>
+	
+<!-- Mono -->
+	<bean id="quartzMNewsJob" class="com.cs2c.dvs.timer.QuartzMNewsJob"
+		parent="quartzJob" lazy-init="true">
+		<description>canonical定时器任务</description>
+	</bean>
+
+	<bean id="quartzMNewsDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<description>Eucalyptus定时器执行方法</description>
+		<property name="targetObject" ref="quartzMNewsJob" />
+		<property name="targetMethod" value="work" />
+	</bean>
+
+	<bean id="quartzMNewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<description>Eucalyptus触发器</description>
+		<property name="jobDetail" ref="quartzMNewsDetail" />
+		<property name="cronExpression" value="0 0 6,18 * * ?" />
+		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
+	</bean>
+<!-- OpenNebula -->
+	<bean id="quartzONNewsJob" class="com.cs2c.dvs.timer.QuartzONNewsJob"
+		parent="quartzJob" lazy-init="true">
+		<description>canonical定时器任务</description>
+	</bean>
+
+	<bean id="quartzONNewsDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<description>Eucalyptus定时器执行方法</description>
+		<property name="targetObject" ref="quartzONNewsJob" />
+		<property name="targetMethod" value="work" />
+	</bean>
+
+	<bean id="quartzONNewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<description>Eucalyptus触发器</description>
+		<property name="jobDetail" ref="quartzONNewsDetail" />
+		<property name="cronExpression" value="0 0 5,17 * * ?" />
+		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
+	</bean>
+
+	<bean id="SpringJobSchedulerFactoryBean"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<description>定时器调度工厂</description>
+		<property name="triggers">
+			<list>
+				<!-- 这里可以配置更多的触发器 -->
+				<ref bean="quartzOSNewsTrigger" />
+				<ref bean="quartzCNewsTrigger" />
+				<ref bean="quartzENewsTrigger" />
+				<ref bean="quartzMNewsTrigger" />
+				<ref bean="quartzONNewsTrigger" />
+			</list>
+		</property>
+	</bean>
+	<!-- 配置定时器结束 -->
+
+</beans>

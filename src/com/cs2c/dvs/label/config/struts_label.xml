@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="label" namespace="/label" extends="quickValidation">
+		
+		<action name="addLabel" class="labelAction" method="addLabel">
+			<result name="addLabel" type="redirectAction">queryAllLabel2</result>
+			<result name="paraNull">/jsp/other/noaccess.jsp</result>
+		</action>
+		
+		<action name="queryAllLabel" class="labelAction" method="queryAllLabel">
+			<result name="queryAllLabel">/jsp/ajaxdata/ajaxLabel.jsp</result>
+		</action>
+		
+		<action name="queryAllLabel2" class="labelAction" method="queryAllLabel">
+			<result name="queryAllLabel">/jsp/ajaxdata/ajaxLabel2.jsp</result>
+		</action>
+		
+		<action name="deleteLabel" class="labelAction" method="deleteLabel">
+			<result name="delLabel" type="redirectAction">queryAllLabel2</result>
+			<result name="paraNull">/jsp/other/noaccess.jsp</result>
+		</action>
+		
+		<action name="updateLabel" class="labelAction" method="updateLabel">
+			<result name="updateLabel" type="redirectAction">queryAllLabel2</result>
+			<result name="paraNull">/jsp/other/noaccess.jsp</result>
+		</action>
+		
+	</package>
+</struts>

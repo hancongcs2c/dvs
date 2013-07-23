@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="data" namespace="/data" extends="quickValidation">
+		<action name="queryData" class="dataAction" method="queryData">
+			<result name="queryData">/jsp/newstate.jsp</result>
+		</action>
+		
+		<action name="rankData" class="dataAction" method="rankData">
+			<result name="rankData">/jsp/ranking.jsp</result>
+		</action>
+	</package> 
+</struts>

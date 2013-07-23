@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="false"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Com模块配置开始 -->
+	<bean id="comDaoImpl" class="com.cs2c.dvs.dao.impl.ComDaoImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="comServiceImpl"	class="com.cs2c.dvs.community.service.impl.ComServiceImpl">
+		<property name="dao" ref="comDaoImpl" />
+	</bean>
+	<bean id="comAction"	class="com.cs2c.dvs.community.action.ComAction">
+		<property name="service" ref="comServiceImpl" />
+		<property name="typeService" ref="typeServiceImpl" />
+	</bean>
+	<!-- Com模块配置结束 -->
+
+</beans>

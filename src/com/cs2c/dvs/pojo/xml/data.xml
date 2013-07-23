@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Data">
+	<!-- 关联映射类 -->
+	<typeAlias alias="data" type="com.cs2c.dvs.pojo.Data" />
+	<select id="QueryData" resultClass="data" parameterClass="java.util.HashMap">
+		SELECT * FROM dvs_data 
+		where data_id is not null 
+		<dynamic>
+			<isNotNull  property="name">
+			 	and (name like '%$name$%'  or email like  '%$name$%' ) 
+			</isNotNull>
+			<isNotNull property="project">
+				and (project like '%$project$%' or community like '%$project$%' ) 
+	 		</isNotNull>
+	 		<isNotNull property="affliation">
+				and affliation like '%$affliation$%' 
+	 		</isNotNull>
+	 		
+	 	</dynamic>
+	 	
+	 	order by date desc 
+		limit #pageStart#,20 
+	</select>
+	
+	<select id="QueryDataTotal" resultClass="data" parameterClass="java.util.HashMap">
+		SELECT * FROM dvs_data 
+		where data_id is not null 
+		<dynamic>
+			<isNotNull  property="name">
+			 	and (name like '%$name$%'  or email like  '%$name$%' ) 
+			</isNotNull>
+			<isNotNull property="project">
+				and (project like '%$project$%' or community like '%$project$%' ) 
+	 		</isNotNull>
+	 		<isNotNull property="affliation">
+				and affliation like '%$affliation$%' 
+	 		</isNotNull>
+	 	</dynamic>
+	</select>
+	
+	<select id="QueryRank" resultClass="java.util.HashMap" parameterClass="String">
+		select affliation,sum(changeset) sum from dvs_data 
+		where community=#community# 
+		group by affliation 
+		order by sum desc 
+	</select>
+	
+	<select id="SelectDataCount" resultClass="int" parameterClass="java.util.HashMap">
+		select count(*) from dvs_data  
+		where data_id is not null 
+		<dynamic>
+			<isNotNull  property="name">
+			 	and (name like '%$name$%'  or email like  '%$name$%' ) 
+			</isNotNull>
+			<isNotNull property="project">
+				and (project like '%$project$%' or community like '%$project$%' ) 
+	 		</isNotNull>
+	 		<isNotNull property="affliation">
+				and affliation like '%$affliation$%' 
+	 		</isNotNull>
+	 		
+	 	</dynamic>
+	</select>
+	
+</sqlMap>

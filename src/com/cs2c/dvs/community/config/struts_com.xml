@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com" namespace="/com" extends="quickValidation">
+		
+		<action name="toAdd" class="comAction" method="toAdd">
+			<result name="toAdd">/jsp/ajaxdata/ajaxCom3.jsp</result>
+		</action>
+		
+		<action name="addCom" class="comAction" method="addCom">
+			<result name="addCom" type="redirectAction">/queryAllCom</result>
+		</action>
+		
+		<action name="queryAllCom" class="comAction" method="queryAllCom">
+			<result name="queryAllCom">/jsp/ajaxdata/ajaxCom.jsp</result>
+		</action>
+		
+		<action name="queryAllCom2" class="comAction" method="queryAllCom">
+			<result name="queryAllCom">/jsp/ajaxdata/ajaxCom4.jsp</result>
+		</action>
+		
+		<action name="deleteCom" class="comAction" method="deleteCom">
+			<result name="deleteCom" type="redirectAction">/queryAllCom</result>
+		</action>
+		<action name="queryComById" class="comAction" method="queryComById">
+			<result name="queryComById">/jsp/ajaxdata/ajaxCom2.jsp</result>
+		</action>
+		<action name="updateCom" class="comAction" method="updateCom">
+			<result name="updateCom" type="redirectAction">/queryAllCom</result>
+		</action>
+		
+	</package>
+</struts>

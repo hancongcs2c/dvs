@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="login" namespace="/" extends="quickValidation">
+		<action name="login" class="userAction" method="login">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/user</param>
+				<param name="actionName">queryAllUser</param>
+			</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		
+		<action name="userLogin" class="userAction" method="userLogin">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/user</param>
+				<param name="actionName">queryAllUser</param>
+			</result>
+			<result name="error">/login.jsp</result>
+		</action>
+
+		<action name="logout" class="userAction" method="logout">
+			<result name="error">/login.jsp</result>
+		</action>
+	</package>
+
+	<package name="user" namespace="/user" extends="quickValidation">
+		<action name="queryAllUser" class="userAction" method="queryAllUser">
+			<result name="queryAllUser">/jsp/admin.jsp</result>
+		</action>
+		
+		<action name="addUser" class="userAction" method="addUser">
+			<result name="addUser" type="redirectAction">queryAllUser</result>
+			<result name="paraNull" type="redirectAction">queryAllUser</result>
+		</action>
+		
+		<action name="checkEmail" class="userAction" method="queryByEmail">
+		</action>
+		
+		<action name="deleteUser" class="userAction" method="deleteUser">
+			<result name="deleteUser" type="redirectAction">queryAllUser</result>
+		</action>
+		
+		<action name="recoverUser" class="userAction" method="recoverUser">
+			<result name="recoverUser" type="redirectAction">queryAllUser</result>
+		</action>
+		
+		<action name="queryUserById" class="userAction" method="queryUserById">
+			<result name="queryUserById">/jsp/ajaxdata/ajaxUser.jsp</result>
+		</action>
+		
+		<action name="updateUser" class="userAction" method="updateUser">
+			<result name="updateUser" type="redirectAction">queryAllUser</result>
+		</action>
+
+	</package>
+</struts>

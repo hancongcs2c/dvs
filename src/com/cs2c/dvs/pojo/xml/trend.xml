@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Trend">
+	<!-- 关联映射类 -->
+	<typeAlias alias="trend" type="com.cs2c.dvs.pojo.Trend" />
+	<select id="QueryAllTrend" resultClass="java.util.HashMap">
+		select  c.com_name,ty.type_name,t.*,u.user_truename,d.depart_name   
+		from dvs_community c,dvs_trend t,dvs_user u,dvs_type ty,dvs_depart d    
+		where c.com_id=t.com_id 
+		and u.user_id=t.user_id 
+		and c.type_id=ty.type_id 
+                and u.depart_id=d.depart_id 
+		order by t.trend_credate desc,t.trend_id desc;
+	</select>
+	<select id="QueryTrByUser" resultClass="java.util.HashMap" parameterClass="int">
+		select  c.com_name,ty.type_name,t.*  
+		from dvs_community c,dvs_trend t,dvs_user u,dvs_type ty   
+		where c.com_id=t.com_id 
+		and u.user_id=t.user_id 
+		and c.type_id=ty.type_id 
+		and u.user_id=#userId#  
+		order by t.trend_credate desc,t.trend_id desc;
+	</select>
+	
+	<insert id="AddTrend" parameterClass="trend">
+		INSERT INTO dvs_trend(TREND_WEEKNUM, COM_ID,
+		INOPN,SUMMARY,COL,STATUS,C_TIME,EMAIL,TRANSLATION,TECH_ARTICLE,IRC_M,FORUM_POSTS,O_TIME,
+		USER_ID,TREND_CREDATE,TREND_UPDATE) 
+		VALUES (#trendWeeknum#,#comId#,#inopn#,#summary#,#col#,#status#,#c_time#,#emailNum#,#translation#,
+		#techArticle#,#ircMeeting#,#forumPosts#,#o_time#,#userId#,#trendCredate#,#trendUpdate#)
+	</insert>
+</sqlMap>

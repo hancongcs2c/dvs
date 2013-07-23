@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="News">
+	<!-- 关联映射类 -->
+	<typeAlias alias="news" type="com.cs2c.dvs.pojo.News" />
+	<resultMap class="news" id="NewsMap">
+		<result property="newsId" column="news_id"/>
+		<result property="link" column="url"/>
+		<result property="catgory" column="catgory"/>
+		<result property="title" column="title"/>
+		<result property="pubDate" column="pubdate"/>
+		<result property="description" column="description"/>
+	</resultMap>
+	<insert id="AddNews" parameterClass="news">
+		insert into dvs_news (catgory,title,pubdate,url,description) 
+		values (#catgory#,#title#,#pubDate#,#link#,#description#)
+	</insert>
+	<select id="QueryNews" resultClass="news" resultMap="NewsMap">
+		select * from dvs_news order by pubDate desc
+	</select>
+	
+	<select id="QueryNewsByLink" parameterClass="String" resultClass="news">
+		select * from dvs_news where url=#link#
+	</select>
+</sqlMap>

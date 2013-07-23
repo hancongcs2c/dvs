@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Label">
+	<!-- 关联映射类 -->
+	<typeAlias alias="label" type="com.cs2c.dvs.pojo.Label" />
+
+	<resultMap class="label" id="labelMap">
+		<result property="labelId" column="label_id" />
+		<result property="labelName" column="label_name" />
+		<result property="labelLevel" column="label_level" />
+	</resultMap>
+
+	<select id="QueryAllLabel" resultMap="labelMap">
+		select * from dvs_label
+	</select>
+	
+	<insert id="AddLabel" parameterClass="label">
+		insert into dvs_label (label_name,label_level) values (#labelName#,#labelLevel#) 
+	</insert>
+	
+	<select id="QuerylabelById" resultMap="labelMap" parameterClass="int">
+		select * from dvs_label 
+		where label_id=#labelId#
+	</select>
+	
+	<delete id="DeleteLabel" parameterClass="int">
+		delete from dvs_label where label_id=#labelId#
+	</delete>
+	
+	<update id="UpdateLabel" parameterClass="label">
+		update dvs_label set label_name=#labelName#,label_level=#labelLevel# where label_id=#labelId#
+	</update>
+	
+</sqlMap>

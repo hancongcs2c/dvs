@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="User">
+	<!-- 关联映射类 -->
+	<typeAlias alias="user" type="com.cs2c.dvs.pojo.User" />
+	<!-- SQL解析类 -->
+	<typeAlias alias="SQLPager" type="org.plugbase.sql.SQLPager" />
+	<resultMap class="user" id="UserMap">
+		<result property="userId" column="user_id" />
+		<result property="userEmail" column="user_email" />
+		<result property="userTruename" column="user_truename" />
+		<result property="departId" column="depart_id" />
+		<result property="userPassword" column="user_password" />
+		<result property="userCredate" column="user_credate" />
+		<result property="userUpdate" column="user_update" />
+	</resultMap>
+ 	<!-- 总记录数查询 -->
+	<select id="SelectUserCount" resultClass="int" parameterClass="String">
+		select count(*) from dvs_user
+		<isNotNull prepend="where"> 
+               depart_id = #departId#
+ 		</isNotNull>
+	</select>
+	<!-- 动态查询所有用户 -->
+	<select id="QueryAllUser" resultClass="java.util.HashMap" parameterClass="java.util.HashMap">
+		select * from  dvs_user u,dvs_depart d,user_role ur where 
+		u.depart_id = d.depart_id and u.user_id = ur.user_id
+		<dynamic>
+			<isNotNull prepend="and"  property="departId">
+				d.depart_id = #departId# 
+			</isNotNull>
+		</dynamic>
+		limit #pageStart#,10
+	</select>
+
+	<!-- 管理员验证登录 -->
+	<select id="IsValidate" resultClass="HashMap" parameterClass="java.util.HashMap">
+		select * from dvs_user u,user_role ur,dvs_role r,dvs_depart d where
+		u.user_id=ur.user_id and 
+		r.role_id=ur.role_id and 
+		d.depart_id=u.depart_id and 
+		user_email=#userEmail# and
+		user_password=#userPassword#
+		and r.role_id=1
+	</select>
+	<!-- 用户验证登陆 -->
+	<select id="IsUserValidate" resultClass="HashMap" parameterClass="java.util.HashMap">
+		select * from dvs_user u,user_role ur,dvs_role r,dvs_depart d where
+		u.user_id=ur.user_id and 
+		r.role_id=ur.role_id and 
+		d.depart_id=u.depart_id and 
+		user_email=#userEmail# and
+		user_password=#userPassword#
+	</select>
+	<!-- 用户添加 ，添加用户基本信息和角色 -->
+	<insert id="AddUser" parameterClass="java.util.HashMap">
+		insert into dvs_user (user_email,user_truename,depart_id,user_password,user_credate,user_update)
+		 values(#userEmail#,#userTruename#,#departId#,#userPassword#,#userCredate#,#userUpdate#)
+	</insert>
+	
+	<!-- 删除用户，实际是将用户的role_id改为3，代表离职 -->
+	<update id="DeleteUser" parameterClass="int">
+		update user_role set role_id=3 where user_id=#userId#
+	</update>
+	<!--回复，对应删除，实际是将用户的role_id改为0，代表普通用户 -->
+	<update id="RecoverUser" parameterClass="int">
+		update user_role set role_id=0 where user_id=#userId#
+	</update>
+	
+	<insert id="InsertUserRole" parameterClass="java.util.HashMap">
+		insert into user_role (role_id,user_id) values(#roleId#,(select user_id from dvs_user where
+		user_email=#userEmail#))
+	</insert>
+	
+	<!-- 查询角色 -->
+	<select id="QueryRole" resultClass="java.util.HashMap">
+		select * from dvs_role
+	</select>
+	
+	<!-- 查询email是否存在 -->
+	<select id="QueryByEmail" parameterClass="String" resultClass="java.util.HashMap">
+		select * from dvs_user where user_email=#userEmail#
+	</select>
+	<select id="QueryUserById" parameterClass="int" resultClass="java.util.HashMap">
+		select * from dvs_user u,dvs_depart d,user_role ur
+		where u.user_id=ur.user_id and u.depart_id=d.depart_id and u.user_id=#userId#
+	</select>
+	<update id="UpdateUser" parameterClass="java.util.HashMap">
+		update dvs_user u,user_role ur set user_email=#userEmail#,user_truename=#userTruename#,
+		depart_id=#departId#,user_update=#userUpdate#,role_id=#roleId#
+		where u.user_id=ur.user_id and u.user_id = #userId# 
+	</update>
+</sqlMap>

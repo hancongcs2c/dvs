@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="false"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- data模块配置开始 -->
+	<bean id="dataDaoImpl" class="com.cs2c.dvs.dao.impl.DataDaoImpl">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+	</bean>
+	<bean id="dataServiceImpl"	class="com.cs2c.dvs.data.service.impl.DataServiceImpl">
+		<property name="dao" ref="dataDaoImpl" />
+	</bean>
+	<bean id="dataAction"	class="com.cs2c.dvs.data.action.DataAction">
+		<property name="service" ref="dataServiceImpl" />
+	</bean>
+	<!-- data模块配置结束 -->
+
+</beans>
