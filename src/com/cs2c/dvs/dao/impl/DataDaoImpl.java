@@ -75,5 +75,11 @@ public class DataDaoImpl implements DataDao {
 		return sqlMapClient.queryForList("QueryRank",community);
 	}
 
+
+	@Override
+	public List<HashMap> querySumData() throws SQLException {
+		return sqlMapClient.queryForList("QuerySumData");
+	}
+
 	
 }

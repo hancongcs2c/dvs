@@ -755,3 +755,16 @@ select option span{
 	-webkit-transition:opacity .1s ease-in .1s;
 	-moz-transition:opacity .1s ease-in .1s;
 }
+#sumDataTable{
+	border-radius:0;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border:0;
+	border-bottom:1px solid #ddd;
+}
+#sumDataTable td,#sumDataTable th{
+	border-right:1px solid #ddd;
+}
+#sumDataTable tr td:last-child,#sumDataTable tr th:last-child{
+	border-right:0;
+}

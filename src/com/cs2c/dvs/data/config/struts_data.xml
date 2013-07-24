@@ -11,5 +11,9 @@
 		<action name="rankData" class="dataAction" method="rankData">
 			<result name="rankData">/jsp/ranking.jsp</result>
 		</action>
+		
+		<action name="querySumData" class="dataAction" method="querySumData">
+			<result name="querySumData">/jsp/ajaxdata/ajaxData.jsp</result>
+		</action>
 	</package> 
 </struts>

@@ -36,6 +36,7 @@ public class DataAction extends BaseAction {
 	private Data data;
 	private List<Data> dataList;
 	private String submitFlag;
+	private List<HashMap> sumDataList;
 	private Pager pager;
 	private int pageNum;
 	
@@ -56,6 +57,13 @@ public class DataAction extends BaseAction {
 	private JSONArray  dataSource;
 
 	
+	
+	public List<HashMap> getSumDataList() {
+		return sumDataList;
+	}
+	public void setSumDataList(List<HashMap> sumDataList) {
+		this.sumDataList = sumDataList;
+	}
 	public JSONArray getDataSource() {
 		return dataSource;
 	}
@@ -296,6 +304,17 @@ public class DataAction extends BaseAction {
 			e.printStackTrace();
 		}
 		return "rankData";
+	}
+	/*
+	 * 查询汇总数据
+	 */
+	public String querySumData(){
+		try {
+			sumDataList = service.querySumData();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "querySumData";
 	}
 	public String queryData(){
 		init();

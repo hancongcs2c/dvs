@@ -47,4 +47,10 @@ public class DataServiceImpl implements DataService {
 		return dao.queryRank(community);
 	}
 
+
+	@Override
+	public List<HashMap> querySumData() throws SQLException {
+		return dao.querySumData();
+	}
+
 }

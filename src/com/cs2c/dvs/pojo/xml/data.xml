@@ -64,5 +64,12 @@
 	 		
 	 	</dynamic>
 	</select>
-	
+	<select id="QuerySumData" resultClass="java.util.HashMap">
+		select community,count(distinct(project)) as projects,
+			count(distinct(name)) as contributors,
+			count(distinct(affliation))as employers,
+			sum(added) as addeds,sum(removed) as removeds,
+			sum(changeset) as changesets from dvs_data where affliation!='(Unknown)'   
+			group by community
+	</select>
 </sqlMap>

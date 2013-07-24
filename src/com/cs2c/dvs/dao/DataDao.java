@@ -14,4 +14,5 @@ public interface DataDao {
 	void deleteData() throws SQLException;
 	List<Data> queryData(String name, String project, String affliation) throws SQLException;
 	List<HashMap> queryRank(String community) throws SQLException;
+	List<HashMap> querySumData() throws  SQLException;
 }
