@@ -27,6 +27,7 @@
 			
 		</table>
 		<table class="table table-hover newstate">
+		<tr><td colspan="9">搜索结果：</td></tr>
 			<tr class="active">
 				<th>Community</th>
 				<th>Project</th>
@@ -64,6 +65,60 @@
 					<li><a href="?pageNum=${pager.pageCount}">&raquo;</a></li>
 				</ul>
 			</div>
+			
+			<table class="table table-condensed" id="otherContri">
+			<tr><td colspan="6">手动搜索到的其它贡献：</td></tr>
+				<tr class="active">
+					<th>Community</th>
+					<th>Project</th>
+					<th>Contributor</th>
+					<th>Department</th>
+					<th>Date</th>
+					<th class="t-a-r">Content</th>
+				</tr>
+				<tr>
+					<td>fedora</td>
+					<td>I18N Test Day - Input (language-specific)</td>
+					<td>谢凌云</td>
+					<td>测试中心</td>
+					<td>2013-5-30</td>
+					<td class="t-a-r"><a href="https://fedoraproject.org/wiki/Test_Day:2013-05-02_Internationalization/Results/Input_lang">测试Intelligent Pinyin是否足够智能</a></td>
+					
+				</tr>
+				<tr>
+					<td>fedora</td>
+					<td>I18N Test Day - Input (overall)</td>
+					<td>谢凌云</td>
+					<td>测试中心</td>
+					<td>2013-5-30</td>
+					<td class="t-a-r"><a href="https://fedoraproject.org/wiki/Test_Day:2013-05-02_Internationalization/Results/Input_overall">测试ibus输入法整体运行情况</a></td>
+					
+				</tr>
+				<tr>
+					<td>fedora</td>
+					<td>I18N Test Day - Rendering</td>
+					<td>谢凌云</td>
+					<td>测试中心</td>
+					<td>2013-5-30</td>
+					<td class="t-a-r"><a href="https://fedoraproject.org/wiki/Test_Day:2013-05-02_Internationalization/Results/Rendering">测试浏览器打开一个网站时是否可以自动选择语言</a></td>
+				</tr>
+				<tr>
+					<td>glusterfs</td>
+					<td>glusterfs</td>
+					<td>李俊丽</td>
+					<td>服务器产品研发部</td>
+					<td>2013-3-21</td>
+					<td class="t-a-r"><a href="https://bugzilla.redhat.com/show_bug.cgi?id=924132">提交一个bug</a></td>
+				</tr>
+				<tr>
+					<td>glusterfs</td>
+					<td>glusterfs</td>
+					<td>李俊丽</td>
+					<td>服务器产品研发部</td>
+					<td>2013-3-20</td>
+					<td class="t-a-r"><a href="http://review.gluster.org/#/c/4700/">为修复bug提交代码2行</a></td>
+				</tr>
+			</table>
 	</div>
 </div>
 
