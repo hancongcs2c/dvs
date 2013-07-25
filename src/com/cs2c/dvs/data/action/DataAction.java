@@ -1,11 +1,14 @@
 package com.cs2c.dvs.data.action;
 
 import java.sql.SQLException;
-import java.text.DecimalFormat;
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
@@ -28,6 +31,8 @@ public class DataAction extends BaseAction {
 	private String email;
 	private String affliation;
 	private Date date;
+	private String startDate;
+	private String overDate;
 	private int added;
 	private int removed;
 	private int changeset;
@@ -55,9 +60,19 @@ public class DataAction extends BaseAction {
 	@SuppressWarnings("rawtypes")
 	private List<HashMap> rankMap;
 	private JSONArray  dataSource;
-
 	
-	
+	public String getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+	public String getOverDate() {
+		return overDate;
+	}
+	public void setOverDate(String overDate) {
+		this.overDate = overDate;
+	}
 	public List<HashMap> getSumDataList() {
 		return sumDataList;
 	}
@@ -230,14 +245,7 @@ public class DataAction extends BaseAction {
 		this.dataList = dataList;
 	}
 	
-	public void init(){
-		if(name!=null&&name.toString().length()==0){
-			name=null;
-		}
-		if(project!=null&&project.toString().length()==0){
-			project=null;
-		}
-	}
+	
 	
 	//Top changeset contributors by employer
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -316,102 +324,134 @@ public class DataAction extends BaseAction {
 		}
 		return "querySumData";
 	}
+	
+	public void init(){
+		if(name!=null&&name.toString().length()==0){
+			name=null;
+		}
+		if(project!=null&&project.toString().length()==0){
+			project=null;
+		}
+		if(startDate!=null&&startDate.toString().length()==0){
+			startDate=null;
+		}
+		if(overDate!=null&&overDate.toString().length()==0){
+			overDate=null;
+		}
+	}
+	
 	public String queryData(){
-		init();
-		HttpSession session = servletRequest.getSession();
 		
-		/*用session记录查询条件*/
-		if ("yes".equals(this.submitFlag)) {
-			session.setAttribute("name", this.name);
-			session.setAttribute("project", this.project);
-			session.setAttribute("affliation", this.affliation);
-		}
-			
-		if (session.getAttribute("name") != null) {
-			this.name = (String) session.getAttribute("name");
-		}
-		if (session.getAttribute("project") != null) {
-			this.project = (String) session.getAttribute("project");
-		}
-		if (session.getAttribute("affliation") != null) {
-			this.affliation = (String) session.getAttribute("affliation");
-		}
 		try {
 			
-			//pagination list
-			pager = new Pager(service.getCount(name,project,affliation), pageNum);
-			dataList = service.queryData(pager,name,project,affliation);
-			dataLists = service.queryData(name,project,affliation);
-			//total
-			List<String> listTemp = new ArrayList<String>();
-			String opTemp;
-			int numTemp=0;
+			init();
+			HttpSession session = servletRequest.getSession();
 			
-			//计算贡献者数量
-			for(int i = 0;i < dataLists.size();i++){
-				opTemp = dataLists.get(i).getName();
-				if(!listTemp.contains(opTemp)) {  
-					listTemp.add(opTemp);
-	            }
+			/*用session记录查询条件*/
+			if ("yes".equals(this.submitFlag)) {
+				session.setAttribute("name", this.name);
+				session.setAttribute("project", this.project);
+				session.setAttribute("affliation", this.affliation);
+				session.setAttribute("startDate", this.startDate);
+				session.setAttribute("overDate", this.overDate);
 			}
-			developers = listTemp.size();
-			listTemp.clear();
-			
-			//计算项目数量
-			for(int i = 0;i < dataLists.size();i++){
-				opTemp = dataLists.get(i).getProject();
-				if(!listTemp.contains(opTemp)) {  
-					listTemp.add(opTemp);
-	            }
+				
+			if (session.getAttribute("name") != null) {
+				this.name = (String) session.getAttribute("name");
 			}
-			pros = listTemp.size();
-			listTemp.clear();
-			
-			//计算社区数量
-			for(int i = 0;i < dataLists.size();i++){
-				opTemp = dataLists.get(i).getCommunity();
-				if(!listTemp.contains(opTemp)) {
-					listTemp.add(opTemp);
-	            }
+			if (session.getAttribute("project") != null) {
+				this.project = (String) session.getAttribute("project");
 			}
-			coms = listTemp.size();
-			listTemp.clear();
-			
-			//计算公司数量
-			for(int i = 0;i < dataLists.size();i++){
-				opTemp = dataLists.get(i).getAffliation();
-				if(!listTemp.contains(opTemp)) {  
-					listTemp.add(opTemp);
-	            }
-			}
-			employers = listTemp.size();
-			listTemp.clear();
-			
-			//总的added数量
-			addeds=0;
-			for(int i = 0;i < dataLists.size();i++){
-				numTemp = dataLists.get(i).getAdded();
-				addeds+=numTemp;
+			if (session.getAttribute("affliation") != null) {
+				this.affliation = (String) session.getAttribute("affliation");
 			}
 			
-			//总的removed数量
-			removeds=0;
-			for(int i = 0;i < dataLists.size();i++){
-				numTemp = dataLists.get(i).getRemoved();
-				removeds+=numTemp;
+			Date startDate1 = null;
+			Date overDate1 = null;
+			System.out.println("*----***"+session.getAttribute("startDate"));
+			if (session.getAttribute("startDate") != null&&session.getAttribute("startDate").toString().length()!=0) {
+				this.startDate = (String) session.getAttribute("startDate");
+				startDate1 = java.sql.Date.valueOf(startDate);
+			}
+			if (session.getAttribute("overDate") != null && session.getAttribute("overDate").toString().length()!=0 ) {
+				this.overDate = (String) session.getAttribute("overDate");
+				overDate1 = java.sql.Date.valueOf(overDate);
 			}
 			
-			//总的changeset数量
-			csets=0;
-			for(int i = 0;i < dataLists.size();i++){
-				numTemp = dataLists.get(i).getChangeset();
-				csets+=numTemp;
+				//pagination list
+				pager = new Pager(service.getCount(name,project,affliation,startDate1,overDate1), pageNum);
+				dataList = service.queryData(pager,name,project,affliation,startDate1,overDate1);
+				dataLists = service.queryData(name,project,affliation,startDate1,overDate1);
+				//total
+				List<String> listTemp = new ArrayList<String>();
+				String opTemp;
+				int numTemp=0;
+				
+				//计算贡献者数量
+				for(int i = 0;i < dataLists.size();i++){
+					opTemp = dataLists.get(i).getName();
+					if(!listTemp.contains(opTemp)) {  
+						listTemp.add(opTemp);
+		            }
+				}
+				developers = listTemp.size();
+				listTemp.clear();
+				
+				//计算项目数量
+				for(int i = 0;i < dataLists.size();i++){
+					opTemp = dataLists.get(i).getProject();
+					if(!listTemp.contains(opTemp)) {  
+						listTemp.add(opTemp);
+		            }
+				}
+				pros = listTemp.size();
+				listTemp.clear();
+				
+				//计算社区数量
+				for(int i = 0;i < dataLists.size();i++){
+					opTemp = dataLists.get(i).getCommunity();
+					if(!listTemp.contains(opTemp)) {
+						listTemp.add(opTemp);
+		            }
+				}
+				coms = listTemp.size();
+				listTemp.clear();
+				
+				//计算公司数量
+				for(int i = 0;i < dataLists.size();i++){
+					opTemp = dataLists.get(i).getAffliation();
+					if(!listTemp.contains(opTemp)) {  
+						listTemp.add(opTemp);
+		            }
+				}
+				employers = listTemp.size();
+				listTemp.clear();
+				
+				//总的added数量
+				addeds=0;
+				for(int i = 0;i < dataLists.size();i++){
+					numTemp = dataLists.get(i).getAdded();
+					addeds+=numTemp;
+				}
+				
+				//总的removed数量
+				removeds=0;
+				for(int i = 0;i < dataLists.size();i++){
+					numTemp = dataLists.get(i).getRemoved();
+					removeds+=numTemp;
+				}
+				
+				//总的changeset数量
+				csets=0;
+				for(int i = 0;i < dataLists.size();i++){
+					numTemp = dataLists.get(i).getChangeset();
+					csets+=numTemp;
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				pageNum=1;
 			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-			pageNum=1;
-		}
 		return "queryData";
 	}
 	

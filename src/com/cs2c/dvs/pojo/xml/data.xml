@@ -16,9 +16,14 @@
 				and (project like '%$project$%' or community like '%$project$%' ) 
 	 		</isNotNull>
 	 		<isNotNull property="affliation">
-				and affliation like '%$affliation$%' 
+				and affliation like '%$affliation$%'  
 	 		</isNotNull>
-	 		
+	 		<isNotNull property="startDate">
+	 			<isNotNull property="overDate">
+	 			and date between #startDate# and #overDate#
+	 			</isNotNull>
+	 		</isNotNull>
+	 		 
 	 	</dynamic>
 	 	
 	 	order by date desc 
@@ -37,6 +42,11 @@
 	 		</isNotNull>
 	 		<isNotNull property="affliation">
 				and affliation like '%$affliation$%' 
+	 		</isNotNull>
+	 		<isNotNull property="startDate">
+	 			<isNotNull property="overDate">
+	 			and date between #startDate# and #overDate#
+	 			</isNotNull>
 	 		</isNotNull>
 	 	</dynamic>
 	</select>
@@ -61,15 +71,19 @@
 	 		<isNotNull property="affliation">
 				and affliation like '%$affliation$%' 
 	 		</isNotNull>
-	 		
+	 		<isNotNull property="startDate">
+	 			<isNotNull property="overDate">
+	 			and date between #startDate# and #overDate#
+	 			</isNotNull>
+	 		</isNotNull>
 	 	</dynamic>
 	</select>
 	<select id="QuerySumData" resultClass="java.util.HashMap">
-		select community,count(distinct(project)) as projects,
+		select community,project,
 			count(distinct(name)) as contributors,
 			count(distinct(affliation))as employers,
 			sum(added) as addeds,sum(removed) as removeds,
-			sum(changeset) as changesets from dvs_data where affliation!='(Unknown)'   
-			group by community
+			sum(changeset) as changesets from dvs_data where affliation='cs2c'   
+			group by project
 	</select>
 </sqlMap>

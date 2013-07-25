@@ -1,6 +1,7 @@
 package com.cs2c.dvs.dao.impl;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,25 +25,30 @@ public class DataDaoImpl implements DataDao {
 	}
 
 	@Override
-	public List<Data> queryData(Pager pager, String name, String project,String affliation)
+	public List<Data> queryData(Pager pager, String name, String project,String affliation,Date startDate,Date overDate)
 			throws SQLException {
+		System.out.println("##########dao"+startDate+overDate);
 		HashMap map = new HashMap();
 		
 		map.put("name", name);
 		map.put("project", project);
 		map.put("affliation", affliation);
 		map.put("pageStart", pager.getStart());
+		map.put("startDate", startDate);
+		map.put("overDate", overDate);
 		return sqlMapClient.queryForList("QueryData",map);
 	}
 
 
 	@Override
-	public int getCount(String name, String project,String affliation) throws SQLException {
+	public int getCount(String name, String project,String affliation,Date startDate,Date overDate) throws SQLException {
 		HashMap map = new HashMap();
 		
 		map.put("name", name);
 		map.put("project", project);
 		map.put("affliation", affliation);
+		map.put("startDate", startDate);
+		map.put("overDate", overDate);
 		return (int) sqlMapClient.queryForObject("SelectDataCount", map);
 	}
 
@@ -60,12 +66,14 @@ public class DataDaoImpl implements DataDao {
 
 
 	@Override
-	public List<Data> queryData(String name, String project, String affliation) throws SQLException {
+	public List<Data> queryData(String name, String project, String affliation,Date startDate,Date overDate) throws SQLException {
 		HashMap map = new HashMap();
 		
 		map.put("name", name);
 		map.put("project", project);
 		map.put("affliation", affliation);
+		map.put("startDate", startDate);
+		map.put("overDate", overDate);
 		return sqlMapClient.queryForList("QueryDataTotal",map);
 	}
 

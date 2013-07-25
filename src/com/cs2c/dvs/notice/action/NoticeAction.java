@@ -4,7 +4,6 @@
 package com.cs2c.dvs.notice.action;
 
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -130,7 +129,6 @@ public class NoticeAction extends BaseAction {
 		
 		HashMap noticeMap = new HashMap();
 		noticeMap.put("noticeId", noticeId);
-		//System.out.println("hello2"+noticeMap.get(noticeId));
 		noticeMap.put("noticeTitle",  noticeTitle);
 		noticeMap.put("noticeUpdate", new Date());
 		noticeMap.put("noticeAuthor", noticeAuthor);

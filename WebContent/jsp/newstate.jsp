@@ -17,7 +17,8 @@
 		    <input placeholder="搜索公司" class="input-small search-query"  type="text" name="affliation" id="affliation" value="${sessionScope.affliation }">
 		    <a class="btn cs2c">cs2c</a>
 		</div>
-		
+		<input placeholder="yyyy-mm-dd" class="input-medium search-query"  type="date" name="startDate" id="startDate" value="${sessionScope.startDate }">到
+		<input placeholder="yyyy-mm-dd" class="input-medium search-query"  type="date" name="overDate" id="overDate" value="${sessionScope.overDate }">
 		<button class="btn btn-warning" type="submit">搜索</button>
 		
 	</form>
@@ -27,7 +28,8 @@
 			
 		</table>
 		<table class="table table-hover newstate">
-		<tr><td colspan="9">搜索结果：</td></tr>
+		<tr><td colspan="9">搜索结果：总共为您找出${pager.recordCount}条数据，${pager.pageCount }页。其中包含${coms }个社区，${pros }个项目，${employers}个公司。
+		${developers}名贡献者，代码添加${addeds}行，删除${removeds}行，提交${csets }次。</td></tr>
 			<tr class="active">
 				<th>Community</th>
 				<th>Project</th>
@@ -67,7 +69,8 @@
 			</div>
 			
 			<table class="table table-condensed" id="otherContri">
-			<tr><td colspan="6">手动搜索到的其它贡献：</td></tr>
+			<tr><td colspan="6">一些贡献不能通过工具自动搜索到，下表中列出手动搜索到的本公司员工相关贡献：</td></tr>
+				
 				<tr class="active">
 					<th>Community</th>
 					<th>Project</th>
@@ -77,11 +80,36 @@
 					<th class="t-a-r">Content</th>
 				</tr>
 				<tr>
+					<td>openstack</td>
+					<td>nova</td>
+					<td>王志超</td>
+					<td>云方案部</td>
+					<td>2013-07-24</td>
+					<td class="t-a-r"><a href="https://answers.launchpad.net/nova/+question/232942">launchpad上提问</a></td>
+				</tr>
+				<tr>
+					<td>openstack</td>
+					<td>nova</td>
+					<td>王志超</td>
+					<td>云方案部</td>
+					<td>2013-07-24</td>
+					<td class="t-a-r"><a href="https://launchpad.net/~zhichao-wang">注册launchpad</a></td>
+				</tr>
+				
+				<tr>
+					<td>openstack</td>
+					<td>nova</td>
+					<td>叶钢</td>
+					<td>云方案部</td>
+					<td>2013-07-22</td>
+					<td class="t-a-r"><a href="https://answers.launchpad.net/nova/+question/232838">launchpad上提问</a></td>
+				</tr>
+				<tr>
 					<td>fedora</td>
 					<td>I18N Test Day - Input (language-specific)</td>
 					<td>谢凌云</td>
 					<td>测试中心</td>
-					<td>2013-5-30</td>
+					<td>2013-05-30</td>
 					<td class="t-a-r"><a href="https://fedoraproject.org/wiki/Test_Day:2013-05-02_Internationalization/Results/Input_lang">测试Intelligent Pinyin是否足够智能</a></td>
 					
 				</tr>
@@ -90,7 +118,7 @@
 					<td>I18N Test Day - Input (overall)</td>
 					<td>谢凌云</td>
 					<td>测试中心</td>
-					<td>2013-5-30</td>
+					<td>2013-05-30</td>
 					<td class="t-a-r"><a href="https://fedoraproject.org/wiki/Test_Day:2013-05-02_Internationalization/Results/Input_overall">测试ibus输入法整体运行情况</a></td>
 					
 				</tr>
@@ -99,15 +127,23 @@
 					<td>I18N Test Day - Rendering</td>
 					<td>谢凌云</td>
 					<td>测试中心</td>
-					<td>2013-5-30</td>
+					<td>2013-05-30</td>
 					<td class="t-a-r"><a href="https://fedoraproject.org/wiki/Test_Day:2013-05-02_Internationalization/Results/Rendering">测试浏览器打开一个网站时是否可以自动选择语言</a></td>
+				</tr>
+				<tr>
+					<td>云联盟</td>
+					<td>OADT</td>
+					<td>蒋涛</td>
+					<td>服务器产品研发部</td>
+					<td>2013-04-12</td>
+					<td class="t-a-r"><a href="https://lists.launchpad.net/coscl/msg00018.html">回答了一个OADT相关的问题...</a></td>
 				</tr>
 				<tr>
 					<td>glusterfs</td>
 					<td>glusterfs</td>
 					<td>李俊丽</td>
 					<td>服务器产品研发部</td>
-					<td>2013-3-21</td>
+					<td>2013-03-21</td>
 					<td class="t-a-r"><a href="https://bugzilla.redhat.com/show_bug.cgi?id=924132">提交一个bug</a></td>
 				</tr>
 				<tr>
@@ -117,6 +153,14 @@
 					<td>服务器产品研发部</td>
 					<td>2013-3-20</td>
 					<td class="t-a-r"><a href="http://review.gluster.org/#/c/4700/">为修复bug提交代码2行</a></td>
+				</tr>
+				<tr>
+					<td>openstack</td>
+					<td>nova</td>
+					<td>叶钢</td>
+					<td>云方案部</td>
+					<td>2012-08-17</td>
+					<td class="t-a-r"><a href="https://launchpad.net/~gang-ye">注册launchpad</a></td>
 				</tr>
 			</table>
 	</div>
