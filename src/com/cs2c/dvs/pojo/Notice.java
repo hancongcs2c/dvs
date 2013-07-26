@@ -3,7 +3,6 @@
  */
 package com.cs2c.dvs.pojo;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 /**

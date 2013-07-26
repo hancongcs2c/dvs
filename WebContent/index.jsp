@@ -60,15 +60,33 @@
         <div class="indexpan" id="about">
         	<h1>About</h1>
             <div class="span9">
-            <p>
-            	<strong>跨部门沟通</strong>
-                与研发的合作、协调情况。指标1：保证每周就各开源社区各方面的状态与各研发部沟通一次；指标2：汇总沟通结果并结合开源社区参与贡献度统计平台写周报，月报。
-            </p>
+                <p>
+                开源社区贡献统计平台是中标软件开源社区部门为统计公司研发人员在各开源社区所做的贡献而开发的，本平台基于J2EE，
+                集成了Java三大开源框架（Struts2+Spring+iBatis），采用mysql数据库，使用Bootstrap作为前端框架，自2013年
+                3月开始开发。
+                </p>
+                <p>
+                本平台现处于功能完善和数据补充维护阶段，<a href="http://localhost:8080/dvs/data/queryData.action">
+                近期数据</a>展示了中标软件研发人员在各开源社区的贡献情形，
+                <a href="http://localhost:8080/dvs/news/queryNews.action">开源新闻</a>抓取了一些开源社区的动态新闻。
+                公司开源社区相关的信息将及时在
+                <a href="http://localhost:8080/dvs/index.jsp#notice">公告</a>中贴出。
+                </p>
+                <p>
+                	如有对本平台任何建议，可发送邮件给开源社区部<a href="mailto:cong.han@cs2c.com.cn">韩聪</a>。
+                </p>
+                <hr />
+                <div>
+            		<p><strong>开源社区贡献统计平台开发进程：</strong></p>
+                	<p><a href="https://github.com/hancongcs2c/dvs">github.com/hancongcs2c/dvs</a></p>
+            	</div>            
             </div>
         </div>
         
         <div class="indexpan" id="contact">
+       
         	<h1>Contact Us</h1>
+        	 <div class="span9">
         	<form class="form-horizontal" action="MAILTO:cong.han@cs2c.com.cn" method="post" enctype="text/plain">
             
               <div class="control-group">
@@ -94,9 +112,10 @@
               
               <div class="control-group">
                 <div class="controls">
-                  <button type="submit" class="btn">发送</button><button type="reset" class="btn">重置</button>
+                  <button type="submit" class="btn btn-warning">发送</button><button type="reset" class="btn">重置</button>
                 </div>
               </div>
             </form>
+            </div>
         </div>
     <jsp:include page="jsp/common/footer.jsp"></jsp:include>

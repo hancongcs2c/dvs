@@ -29,7 +29,6 @@ public class HtmlBean implements ApplicationContextAware {
 		openofficeNewsList.add("https://blogs.apache.org/OOo/feed/entries/atom");
 	}
 
-	@SuppressWarnings("unchecked")
 	private void rss(String url, String website, String topic) throws IOException {
 		
 		//String xml = url;

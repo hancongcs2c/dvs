@@ -45,12 +45,14 @@ public class DataServiceImpl implements DataService {
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<HashMap> queryRank(String community) throws SQLException {
 		return dao.queryRank(community);
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<HashMap> querySumData() throws SQLException {
 		return dao.querySumData();

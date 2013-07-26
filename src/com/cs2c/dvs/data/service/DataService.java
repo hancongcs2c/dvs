@@ -15,7 +15,9 @@ public interface DataService {
 
 	List<Data> queryData(String name, String project, String affliation,Date startDate,Date overDate) throws SQLException;
 	
+	@SuppressWarnings("rawtypes")
 	List<HashMap> queryRank(String community) throws SQLException;
 	
+	@SuppressWarnings("rawtypes")
 	List<HashMap> querySumData() throws  SQLException;
 }

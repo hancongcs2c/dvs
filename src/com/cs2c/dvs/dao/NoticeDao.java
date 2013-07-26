@@ -11,5 +11,6 @@ public interface NoticeDao {
 	List<Notice> queryAllNotice() throws SQLException;
 	void addNotice(Notice notice) throws SQLException;
 	void deleteNotice(int noticeId) throws SQLException;
+	@SuppressWarnings("rawtypes")
 	void updateNotice(HashMap noticeMap) throws SQLException;
 }

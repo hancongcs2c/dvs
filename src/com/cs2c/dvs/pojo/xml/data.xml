@@ -27,7 +27,7 @@
 	 	</dynamic>
 	 	
 	 	order by date desc 
-		limit #pageStart#,20 
+		limit #pageStart#,25 
 	</select>
 	
 	<select id="QueryDataTotal" resultClass="data" parameterClass="java.util.HashMap">

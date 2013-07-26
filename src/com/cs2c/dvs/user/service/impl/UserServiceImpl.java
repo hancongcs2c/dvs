@@ -20,19 +20,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public HashMap isValidate(String userEmail, String userPassword)
 			throws SQLException {
-
-		//System.out.println("service:" + dao.isValidate(userEmail, userPassword));
-		//System.out.println("service:" + userEmail + ";" + userPassword);
 		return dao.isValidate(userEmail, userPassword);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public HashMap isUserValidate(String userEmail, String userPassword)
 			throws SQLException {
-		// TODO Auto-generated method stub
 		return dao.isUserValidate(userEmail, userPassword);
 	}
 
@@ -50,45 +48,41 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User queryByEmail(String userEmail) throws SQLException {
-		// TODO Auto-generated method stub
 		return dao.queryByEmail(userEmail);
 	}
 
 	@Override
 	public void deleteUser(int userId) throws SQLException {
-		// TODO Auto-generated method stub
 		dao.deleteUser(userId);
 	}
 
 	@Override
 	public void recoverUser(int userId) throws SQLException {
-		// TODO Auto-generated method stub
 		dao.recoverUser(userId);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void updateUser(HashMap userMap) throws SQLException {
-		// TODO Auto-generated method stub
 		dao.updateUser(userMap);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public HashMap queryUserById(int userId) throws SQLException {
-		// TODO Auto-generated method stub
 		return dao.queryUserById(userId);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<HashMap> queryAllUser(Pager pager, String departId)
 			throws SQLException {
-		// TODO Auto-generated method stub
 		return dao.queryAllUser(pager, departId);
 	}
 
 
 	@Override
 	public int getCount(String departId) throws SQLException {
-		// TODO Auto-generated method stub
 		return dao.getCount(departId);
 	}
 

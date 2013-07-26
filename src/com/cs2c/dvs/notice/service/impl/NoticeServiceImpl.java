@@ -31,7 +31,6 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public Notice queryNoticeById(int noticeId) throws SQLException {
-		// TODO Auto-generated method stub
 		return dao.queryNoticeById(noticeId);
 	}
 
@@ -43,13 +42,12 @@ public class NoticeServiceImpl implements NoticeService {
 
 	@Override
 	public void deleteNotice(int noticeId) throws SQLException {
-		// TODO Auto-generated method stub
 		dao.deleteNotice(noticeId);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void updateNotice(HashMap noticeMap) throws SQLException {
-		// TODO Auto-generated method stub
 		dao.updateNotice(noticeMap);
 	}
 

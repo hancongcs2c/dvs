@@ -24,10 +24,10 @@ public class DataDaoImpl implements DataDao {
 		this.sqlMapClient = sqlMapClient;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Data> queryData(Pager pager, String name, String project,String affliation,Date startDate,Date overDate)
 			throws SQLException {
-		System.out.println("##########dao"+startDate+overDate);
 		HashMap map = new HashMap();
 		
 		map.put("name", name);
@@ -40,6 +40,7 @@ public class DataDaoImpl implements DataDao {
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public int getCount(String name, String project,String affliation,Date startDate,Date overDate) throws SQLException {
 		HashMap map = new HashMap();
@@ -65,6 +66,7 @@ public class DataDaoImpl implements DataDao {
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<Data> queryData(String name, String project, String affliation,Date startDate,Date overDate) throws SQLException {
 		HashMap map = new HashMap();
@@ -78,12 +80,14 @@ public class DataDaoImpl implements DataDao {
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<HashMap> queryRank(String community) throws SQLException {
 		return sqlMapClient.queryForList("QueryRank",community);
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<HashMap> querySumData() throws SQLException {
 		return sqlMapClient.queryForList("QuerySumData");

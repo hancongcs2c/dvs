@@ -3,15 +3,13 @@ package com.cs2c.dvs.type.action;
 import com.cs2c.dvs.common.BaseAction;
 import com.cs2c.dvs.type.service.TypeService;
 
+@SuppressWarnings("serial")
 public class TypeAction extends BaseAction {
 
 private int typeId;
 
 private String typeName;
-private TypeService typeService;
-
 public void setTypeService(TypeService typeService) {
-	this.typeService = typeService;
 }
 public int getTypeId() {
 	return typeId;

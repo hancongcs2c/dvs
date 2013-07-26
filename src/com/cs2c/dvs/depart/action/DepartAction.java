@@ -6,6 +6,7 @@ import com.cs2c.dvs.common.BaseAction;
 import com.cs2c.dvs.depart.service.DepartService;
 import com.cs2c.dvs.pojo.Depart;
 
+@SuppressWarnings("serial")
 public class DepartAction extends BaseAction {
 
 	private int departId;
@@ -53,7 +54,6 @@ public class DepartAction extends BaseAction {
 		try {
 			departList = departService.queryAllDepart();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "queryAllDepart";
@@ -63,7 +63,6 @@ public class DepartAction extends BaseAction {
 		try {
 			departService.addDepart(departName);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "addDepart";

@@ -23,16 +23,15 @@ public class DepartDaoImpl implements DepartDao {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Depart> queryAllDepart() throws SQLException {
-		// TODO Auto-generated method stub
 		return sqlMapClient.queryForList("QueryAllDepart");
 	}
 
 
 	@Override
 	public void addDepart(String departName)  throws SQLException{
-		// TODO Auto-generated method stub
 		sqlMapClient.insert("AddDepart", departName);
 	}
 

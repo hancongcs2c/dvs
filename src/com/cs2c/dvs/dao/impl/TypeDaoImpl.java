@@ -19,6 +19,7 @@ public class TypeDaoImpl implements TypeDao {
 		return (Type) sqlMapClient.queryForObject("QueryTypeById", typeId);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Type> queryAllType() throws SQLException {
 		return sqlMapClient.queryForList("QueryAllType");

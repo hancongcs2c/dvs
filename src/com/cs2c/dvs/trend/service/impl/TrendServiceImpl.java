@@ -23,22 +23,22 @@ public class TrendServiceImpl implements TrendService{
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<HashMap> queryTrByUser(int userId) throws SQLException {
 		return dao.queryTrByUser(userId);
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<HashMap> queryAllTrend() throws SQLException {
-		// TODO Auto-generated method stub
 		return dao.queryAllTrend();
 	}
 
 
 	@Override
 	public void addTrend(Trend trend) throws SQLException {
-		// TODO Auto-generated method stub
 		dao.addTrend(trend);
 	}
 

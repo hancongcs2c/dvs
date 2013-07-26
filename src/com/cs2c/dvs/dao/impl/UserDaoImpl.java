@@ -25,19 +25,16 @@ private SqlMapClient sqlMapClient;
 		HashMap map = new HashMap();
 		map.put("userEmail", userEmail);
 		map.put("userPassword", userPassword);
-		System.out.println("dao"+sqlMapClient.queryForObject("IsValidate", map));
-		System.out.println("dao:email:"+userEmail+",userPassword:"+userPassword);
 		return (HashMap) sqlMapClient.queryForObject("IsValidate", map);
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public HashMap isUserValidate(String userEmail, String userPassword)
 			throws SQLException {
 		HashMap map = new HashMap();
 		map.put("userEmail", userEmail);
 		map.put("userPassword", userPassword);
-		System.out.println("dao"+sqlMapClient.queryForObject("IsValidate", map));
-		System.out.println("dao:email:"+userEmail+",userPassword:"+userPassword);
 		return (HashMap) sqlMapClient.queryForObject("IsUserValidate", map);
 	}
 
@@ -53,7 +50,6 @@ private SqlMapClient sqlMapClient;
 		userMap.put("userPassword", user.getUserPassword());
 		userMap.put("userCredate", user.getUserCredate());
 		userMap.put("userUpdate", user.getUserUpdate());
-		System.out.println("dao:"+"usermap:"+userMap);
 		sqlMapClient.insert("AddUser", userMap);
 		
 	}
@@ -65,9 +61,7 @@ private SqlMapClient sqlMapClient;
 			@SuppressWarnings("rawtypes")
 			HashMap userRoleMap = new HashMap();
 			userRoleMap.put("roleId", roleId);
-			userRoleMap.put("userEmail", userEmail);
-			System.out.println("dao:roleId"+roleId+"userrolemap:"+userRoleMap);
-			
+			userRoleMap.put("userEmail", userEmail);			
 			sqlMapClient.insert("InsertUserRole", userRoleMap);
 		
 	}
@@ -113,6 +107,7 @@ private SqlMapClient sqlMapClient;
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<HashMap> queryAllUser(Pager pager, String departId)
 			throws SQLException {

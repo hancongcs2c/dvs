@@ -23,6 +23,7 @@ public class ComDaoImpl implements ComDao {
 		this.sqlMapClient = sqlMapClient;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public  List<HashMap> queryAllCom() throws SQLException {
 		return sqlMapClient.queryForList("QueryAllCom");
@@ -40,6 +41,7 @@ public class ComDaoImpl implements ComDao {
 		
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public HashMap queryComById(int comId) throws SQLException {
 		return (HashMap) sqlMapClient.queryForObject("QueryComById", comId);
@@ -47,7 +49,6 @@ public class ComDaoImpl implements ComDao {
 
 	@Override
 	public void updateCom(Com com) throws SQLException {
-		// TODO Auto-generated method stub
 		sqlMapClient.update("UpdateCom", com);
 	}
 

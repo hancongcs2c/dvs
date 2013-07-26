@@ -1,7 +1,6 @@
 package com.cs2c.dvs.common;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -31,8 +30,6 @@ public class LoginFilter implements Filter {
 		HttpServletResponse servletResponse = (HttpServletResponse) arg1;
 		
 		servletResponse.setContentType("html/text;charset=utf-8");
-		PrintWriter out = servletResponse.getWriter();
-		
 		String path = servletRequest.getRequestURI();
 
 		//System.out.println("path"+path);

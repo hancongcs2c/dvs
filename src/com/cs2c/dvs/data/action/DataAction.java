@@ -1,9 +1,6 @@
 package com.cs2c.dvs.data.action;
 
 import java.sql.SQLException;
-import java.text.Format;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -41,6 +38,7 @@ public class DataAction extends BaseAction {
 	private Data data;
 	private List<Data> dataList;
 	private String submitFlag;
+	@SuppressWarnings("rawtypes")
 	private List<HashMap> sumDataList;
 	private Pager pager;
 	private int pageNum;
@@ -73,9 +71,11 @@ public class DataAction extends BaseAction {
 	public void setOverDate(String overDate) {
 		this.overDate = overDate;
 	}
+	@SuppressWarnings("rawtypes")
 	public List<HashMap> getSumDataList() {
 		return sumDataList;
 	}
+	@SuppressWarnings("rawtypes")
 	public void setSumDataList(List<HashMap> sumDataList) {
 		this.sumDataList = sumDataList;
 	}
@@ -368,7 +368,6 @@ public class DataAction extends BaseAction {
 			
 			Date startDate1 = null;
 			Date overDate1 = null;
-			System.out.println("*----***"+session.getAttribute("startDate"));
 			if (session.getAttribute("startDate") != null&&session.getAttribute("startDate").toString().length()!=0) {
 				this.startDate = (String) session.getAttribute("startDate");
 				startDate1 = java.sql.Date.valueOf(startDate);

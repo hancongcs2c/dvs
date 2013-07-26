@@ -24,12 +24,12 @@
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li><a rel="#notice"
-								href="<%=request.getContextPath()%>/index.jsp#notice">通知</a></li>
+								href="<%=request.getContextPath()%>/index.jsp#notice">公告</a></li>
 							<li><a  rel="#about"
 								href="<%=request.getContextPath()%>/index.jsp#about">关于</a></li>
 							<li><a  rel="#contact"
 								href="<%=request.getContextPath()%>/index.jsp#contact">联系我们</a></li>
-							<li><a class="label label-info" href="<%=request.getContextPath()%>/data/queryData.action">本周数据</a></li>
+							<li><a class="label label-info" href="<%=request.getContextPath()%>/data/queryData.action">近期数据</a></li>
 							
 							<li><a class="label label-info" href="<%=request.getContextPath()%>/news/queryNews.action">开源新闻</a></li>
 						</ul>
@@ -38,7 +38,7 @@
 					<c:choose>
 
 						<c:when test="${sessionScope.userEmail==null}">
-							<a class="btn-link reg"
+							<a class="btn-link reg" style="color:#000;"
 								href="<%=request.getContextPath()%>/login.jsp">登录</a>
 						</c:when>
 						

@@ -81,6 +81,7 @@ a{
 /* #about,#contact{
 	background: url(../img/cloud.png) no-repeat;
 } */
+
 ul.nav li .label{
 	width:4em;
 	text-align:center;
@@ -307,7 +308,7 @@ tr.dimissionUser *{
 	display: inline;
 }
 
-.hero-unit.db,.hero-unit {
+.hero-unit.db,.hero-unit ,#about .span9,#contact .span9{
 	background-color: #fff;
 	padding: 1.5em 2.5em;
 	/* border: 1px solid #999; */
@@ -317,7 +318,11 @@ tr.dimissionUser *{
 	-moz-box-shadow:0 0 3px #bcd5de;
 	height: auto;
 }
-
+#about .span9 p{
+	line-height:2em;
+	margin:1em;
+	text-indent:2em;
+}
 .hero-unit .tb {
 	font-size: 14px;
 	padding: 1.5em 0;

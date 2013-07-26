@@ -16,6 +16,7 @@ import com.cs2c.dvs.pojo.Notice;
  * @author hancong
  *
  */
+@SuppressWarnings("serial")
 public class NoticeAction extends BaseAction {
 
 	/* (non-Javadoc)
@@ -125,6 +126,7 @@ public class NoticeAction extends BaseAction {
 		return "deleteNotice";
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String updateNotice(){
 		
 		HashMap noticeMap = new HashMap();

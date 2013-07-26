@@ -9,10 +9,13 @@ import com.cs2c.dvs.pojo.Role;
 import com.cs2c.dvs.pojo.User;
 
 public interface UserService {
+	@SuppressWarnings("rawtypes")
 	List<HashMap> queryAllUser(Pager pager,String departIdStr) throws SQLException;
 
+	@SuppressWarnings("rawtypes")
 	HashMap isValidate(String userEmail, String userPassword)
 			throws SQLException;
+	@SuppressWarnings("rawtypes")
 	HashMap isUserValidate(String userEmail, String userPassword)
 			throws SQLException;
 	void addUser(User user, int roleId, String userEmail) throws SQLException;
@@ -25,7 +28,9 @@ public interface UserService {
 	
 	void recoverUser(int userId) throws SQLException;
 	
+	@SuppressWarnings("rawtypes")
 	void updateUser(HashMap userMap) throws SQLException;
+	@SuppressWarnings("rawtypes")
 	HashMap queryUserById(int userId) throws SQLException;
 	int getCount(String departIdStr) throws SQLException;
 }

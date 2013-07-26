@@ -17,6 +17,7 @@ public class LabelDaoImpl implements LabelDao {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Label> queryAllLabel() throws SQLException {
 		//System.out.println("dao:"+sqlMapClient.queryForList("QueryAllLabel"));

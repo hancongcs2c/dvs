@@ -19,14 +19,17 @@ public class NewsAction {
 	private NewsService service;
 	
 	private News news;
+	@SuppressWarnings("rawtypes")
 	private List<HashMap> newsList;
 	
 
 
+	@SuppressWarnings("rawtypes")
 	public List<HashMap> getNewsList() {
 		return newsList;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public void setNewsList(List<HashMap> newsList) {
 		this.newsList = newsList;
 	}

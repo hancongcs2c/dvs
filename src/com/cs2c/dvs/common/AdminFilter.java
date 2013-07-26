@@ -1,8 +1,6 @@
 package com.cs2c.dvs.common;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -31,7 +29,7 @@ public class AdminFilter implements Filter {
 		HttpServletResponse servletResponse = (HttpServletResponse) arg1;
 		
 		servletResponse.setContentType("html/text;charset=utf-8");
-		PrintWriter out = servletResponse.getWriter();
+		//PrintWriter out = servletResponse.getWriter();
 
 		// -------------验证登陆-----------		
 		HttpSession session=servletRequest.getSession();

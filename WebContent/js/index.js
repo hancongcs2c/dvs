@@ -70,7 +70,7 @@ $(function() {
 		});
 		
 		//删除
-		$('.article h3 span a').click(function(e){
+		$('.delNote').click(function(e){
 			var noticeId = $('.article #noticeIdhidden').val();
 			location.href="/dvs/notice/deleteNotice.action?noticeId="+noticeId;
 			

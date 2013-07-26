@@ -24,6 +24,7 @@ public class NoticeDaoImpl implements NoticeDao {
 	}
 
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Notice> queryAllNotice() throws SQLException {
 		return sqlMapClient.queryForList("QueryAllNotice");
@@ -31,7 +32,6 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public Notice queryNoticeById(int noticeId) throws SQLException {
-		// TODO Auto-generated method stub
 		return (Notice) sqlMapClient.queryForObject("QueryNoticeById", noticeId);
 	}
 
@@ -45,14 +45,13 @@ public class NoticeDaoImpl implements NoticeDao {
 
 	@Override
 	public void deleteNotice(int noticeId) throws SQLException {
-		// TODO Auto-generated method stub
 		sqlMapClient.delete("DeleteNotice", noticeId);
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void updateNotice(HashMap noticeMap) throws SQLException {
-		// TODO Auto-generated method stub
 		sqlMapClient.update("UpdateNotice",noticeMap);
 	}
 

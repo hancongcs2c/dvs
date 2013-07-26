@@ -11,9 +11,15 @@ import com.cs2c.dvs.pojo.Type;
 import com.cs2c.dvs.type.service.TypeService;
 
 public class ComAction extends BaseAction{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ComService service;
+	@SuppressWarnings("rawtypes")
 	private List<HashMap> comList;
 	private Com com;
+	@SuppressWarnings("rawtypes")
 	private HashMap comMap;
 	private int comId;
 	private String comName;
@@ -37,18 +43,22 @@ public class ComAction extends BaseAction{
 	public void setCom(Com com) {
 		this.com = com;
 	}
+	@SuppressWarnings("rawtypes")
 	public HashMap getComMap() {
 		return comMap;
 	}
+	@SuppressWarnings("rawtypes")
 	public void setComMap(HashMap comMap) {
 		this.comMap = comMap;
 	}
 	public ComService getService() {
 		return service;
 	}
+	@SuppressWarnings("rawtypes")
 	public List<HashMap> getComList() {
 		return comList;
 	}
+	@SuppressWarnings("rawtypes")
 	public void setComList(List<HashMap> comList) {
 		this.comList = comList;
 	}
@@ -96,7 +106,6 @@ public class ComAction extends BaseAction{
 		return "toAdd";
 	}
 	public String addCom(){
-		int typeId = this.typeId;
 		com = new Com(this.comName,this.typeId);
 		try {
 			service.addCom(com);
@@ -110,7 +119,6 @@ public class ComAction extends BaseAction{
 		try {
 			service.deleteCom(comId);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "deleteCom";
@@ -120,10 +128,7 @@ public class ComAction extends BaseAction{
 		try {
 			typeList = typeService.queryAllType();
 			comMap = service.queryComById(comId);
-			//System.out.println("typeList:::"+typeList);
-			//System.out.println("comMap:::"+comMap);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "queryComById";
@@ -132,11 +137,9 @@ public class ComAction extends BaseAction{
 	public String updateCom(){
 		int typeId = this.typeId;
 		com = new Com(this.comId,this.comName,typeId);
-		//System.out.println("%%%%%%%"+com);
 		try {
 			service.updateCom(com);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "updateCom";

@@ -18,6 +18,7 @@ public class ComServiceImpl implements ComService{
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<HashMap> queryAllCom() throws SQLException {
 		return dao.queryAllCom();
@@ -37,6 +38,7 @@ public class ComServiceImpl implements ComService{
 	}
 
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public HashMap queryComById(int comId) throws SQLException {
 		System.out.println("service:"+dao.queryComById(comId));
@@ -46,7 +48,6 @@ public class ComServiceImpl implements ComService{
 
 	@Override
 	public void updateCom(Com com) throws SQLException {
-		// TODO Auto-generated method stub
 		dao.updateCom(com);
 	}
 	

@@ -8,12 +8,13 @@
 <h4>${notice.noticeTitle}
 	<span class="time"><fmt:formatDate value="${notice.noticeCredate}" pattern="yyyy-MM-dd"/>
 	<c:if test="${sessionScope.roleId==1}">
-		<a class="btn-link" title="删除">删除此篇</a>
+	<a href="#updateNotice" role="button" data-toggle="modal" title="编辑"><i class="icon-edit"></i></a>
+		
 	</c:if>
 	</span>
 </h4>
 <div id="notice_now">${notice.noticeBody}
-</div>
+</div><hr />
 <c:if test="${sessionScope.roleId==1}">
-<a href="#updateNotice" role="button" data-toggle="modal" title="编辑"><i class="icon-edit"></i></a>
+<a class="btn-link delNote" title="删除">删除此篇</a>
 </c:if>

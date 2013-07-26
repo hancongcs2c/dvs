@@ -22,13 +22,12 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public void addNews(News news) throws SQLException {
-		// TODO Auto-generated method stub
 		dao.addNews(news);
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public List<HashMap> queryNews()  throws SQLException{
-		// TODO Auto-generated method stub
 		return dao.queryNews();
 	}
 

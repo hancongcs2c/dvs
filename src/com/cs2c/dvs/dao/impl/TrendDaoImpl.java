@@ -23,22 +23,22 @@ public class TrendDaoImpl implements TrendDao{
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<HashMap> queryTrByUser(int userId) throws SQLException {
 		return sqlMapClient.queryForList("QueryTrByUser",userId);
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public List<HashMap> queryAllTrend() throws SQLException {
-		// TODO Auto-generated method stub
 		return sqlMapClient.queryForList("QueryAllTrend");
 	}
 
 
 	@Override
 	public void addTrend(Trend trend) throws SQLException {
-		// TODO Auto-generated method stub
 		sqlMapClient.insert("AddTrend", trend);
 	}
 
