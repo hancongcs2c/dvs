@@ -20,7 +20,7 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="/dvs/index.jsp">代码管理数据可视化系统</a>
+					<a class="brand" href="/dvs/index.jsp">开源社区贡献统计平台</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
 							<li><a rel="#notice"

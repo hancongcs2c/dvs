@@ -66,18 +66,18 @@
                 3月开始开发。
                 </p>
                 <p>
-                本平台现处于功能完善和数据补充维护阶段，<a href="http://localhost:8080/dvs/data/queryData.action">
+                本平台现处于功能完善和数据补充维护阶段，<a href="<%=request.getContextPath()%>/dvs/data/queryData.action">
                 近期数据</a>展示了中标软件研发人员在各开源社区的贡献情形，
-                <a href="http://localhost:8080/dvs/news/queryNews.action">开源新闻</a>抓取了一些开源社区的动态新闻。
+                <a href="<%=request.getContextPath()%>/dvs/news/queryNews.action">开源新闻</a>抓取了一些开源社区的动态新闻。
                 公司开源社区相关的信息将及时在
-                <a href="http://localhost:8080/dvs/index.jsp#notice">公告</a>中贴出。
+                <a href="<%=request.getContextPath()%>/dvs/index.jsp#notice">公告</a>中贴出。
                 </p>
                 <p>
-                	如有对本平台任何建议，可发送邮件给开源社区部<a href="mailto:cong.han@cs2c.com.cn">韩聪</a>。
+                	如有对本平台任何建议，可发送邮件给开源社区部<a href="mailto:cong.han@cs2c.com.cn" title="mailto:cong.han@cs2c.com.cn">韩聪</a>。
                 </p>
                 <hr />
                 <div>
-            		<p><strong>开源社区贡献统计平台开发进程：</strong></p>
+            		<p><strong>开源社区贡献统计平台在github：</strong></p>
                 	<p><a href="https://github.com/hancongcs2c/dvs">github.com/hancongcs2c/dvs</a></p>
             	</div>            
             </div>
