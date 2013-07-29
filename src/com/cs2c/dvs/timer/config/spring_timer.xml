@@ -36,7 +36,7 @@
 	<bean id="quartzOSNewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<description>openstack触发器</description>
 		<property name="jobDetail" ref="quartzOSNewsDetail" />
-		<property name="cronExpression" value="0 0 7,19 * * ?" />
+		<property name="cronExpression" value="0 40 10 * * ?" />
 		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
 	</bean>
 <!-- canonical -->
@@ -55,7 +55,7 @@
 	<bean id="quartzCNewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<description>canonical触发器</description>
 		<property name="jobDetail" ref="quartzCNewsDetail" />
-		<property name="cronExpression" value="0 0 8,20 * * ?" />
+		<property name="cronExpression" value="0 40 10 * * ?" />
 		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
 	</bean>
 	
@@ -75,7 +75,7 @@
 	<bean id="quartzENewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<description>Eucalyptus触发器</description>
 		<property name="jobDetail" ref="quartzENewsDetail" />
-		<property name="cronExpression" value="0 0 9,21 * * ?" />
+		<property name="cronExpression" value="0 40 10 * * ?" />
 		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
 	</bean>
 	
@@ -95,7 +95,7 @@
 	<bean id="quartzMNewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<description>Eucalyptus触发器</description>
 		<property name="jobDetail" ref="quartzMNewsDetail" />
-		<property name="cronExpression" value="0 0 6,18 * * ?" />
+		<property name="cronExpression" value="0 40 10 * * ?" />
 		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
 	</bean>
 <!-- OpenNebula -->
@@ -114,7 +114,7 @@
 	<bean id="quartzONNewsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<description>Eucalyptus触发器</description>
 		<property name="jobDetail" ref="quartzONNewsDetail" />
-		<property name="cronExpression" value="0 0 5,17 * * ?" />
+		<property name="cronExpression" value="0 40 10 * * ?" />
 		<!-- <property name="cronExpression" value="5,10,15 * * * * ?" /> -->
 	</bean>
 

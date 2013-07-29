@@ -2,7 +2,7 @@
 $(function() {	
 
 	//加载统计数据表头
-	$('#sumDataTable').load('/dvs/data/querySumData.action');
+	$('#sumtables').load('/dvs/data/querySumData.action');
 	
 	$('.cs2c').click(function(e){
 		$(this).prev('input').val('cs2c');

@@ -118,8 +118,7 @@ public class Notice {
 
 
 	public String getNoticeBody() {
-		noticeBody = "<p>"+noticeBody+"</p>";
-		return noticeBody.replaceAll("\n", "</p><p>");
+		return noticeBody;
 	}
 
 

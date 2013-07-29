@@ -23,10 +23,9 @@
 		
 	</form>
 	<div class="tb">
-		<table class="table table-condensed" id="sumDataTable">
-			<!-- ajax加载sum数据表 -->
-			
-		</table>
+		<div id="sumtables">
+		<!-- ajax加载sum数据表 -->
+		</div>
 		<table class="table table-hover newstate">
 		<tr><td colspan="9">搜索结果：总共为您找出${pager.recordCount}条数据，${pager.pageCount }页。其中包含${coms }个社区，${pros }个项目，${employers}个公司。
 		${developers}名贡献者，代码添加${addeds}行，删除${removeds}行，提交${csets }次。</td></tr>
@@ -35,7 +34,7 @@
 				<th>Project</th>
 				<th>Contributor</th>
 				<th>Email</th>
-				<th>Employer</th>
+				<th>Company</th>
 				<th>Date</th>
 				<th class="t-a-r">Added</th>
 				<th class="t-a-r">Removed</th>
