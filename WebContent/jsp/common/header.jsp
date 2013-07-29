@@ -5,7 +5,7 @@
 <head>
 
 <meta charset="utf-8">
-<title>代码管理数据可视化系统</title>
+<title>开源社区贡献统计平台</title>
 <link href="<%=request.getContextPath()%>/css/bootstrap.css"
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/bootstrap-responsive.css"

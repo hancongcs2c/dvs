@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page import="com.cs2c.dvs.pojo.Notice"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<div class="article hero-unit span7">
 <input type="hidden" id="noticeIdhidden" value="${notice.noticeId }">
 
 <h4>${notice.noticeTitle}
@@ -18,3 +18,4 @@
 <c:if test="${sessionScope.roleId==1}">
 <a class="btn-link delNote" title="删除">删除此篇</a>
 </c:if>
+</div>

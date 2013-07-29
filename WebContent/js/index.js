@@ -71,6 +71,7 @@ $(function() {
 		
 		//删除
 		$('.delNote').click(function(e){
+			
 			var noticeId = $('.article #noticeIdhidden').val();
 			location.href="/dvs/notice/deleteNotice.action?noticeId="+noticeId;
 			
