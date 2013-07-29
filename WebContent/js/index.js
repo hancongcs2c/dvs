@@ -91,9 +91,9 @@ $(function() {
 
 	function noticenimei2(){
 		//删除
-		$('.article h3 span a').click(function(e){
+		$('.delNote').click(function(e){
 			if(window.confirm('您确定要删除此文章吗？')){
-				var noticeId = $('.article #noticeIdhidden').val();
+				var noticeId = $('#noticeIdhidden').val();
 				location.href="/dvs/notice/deleteNotice.action?noticeId="+noticeId;		
                 return true;
              }else{
