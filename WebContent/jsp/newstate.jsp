@@ -86,14 +86,6 @@
 					<td>2013-07-24</td>
 					<td class="t-a-r"><a href="https://answers.launchpad.net/nova/+question/232942">launchpad上提问</a></td>
 				</tr>
-				<tr>
-					<td>openstack</td>
-					<td>nova</td>
-					<td>王志超</td>
-					<td>云方案部</td>
-					<td>2013-07-24</td>
-					<td class="t-a-r"><a href="https://launchpad.net/~zhichao-wang">注册launchpad</a></td>
-				</tr>
 				
 				<tr>
 					<td>openstack</td>
@@ -134,6 +126,22 @@
 					<td>OADT</td>
 					<td>蒋涛</td>
 					<td>服务器产品研发部</td>
+					<td>2013-05-16</td>
+					<td class="t-a-r"><a href="https://bugs.launchpad.net/coscl/+bug/1172651">就bug1172651作了一个回复...</a></td>
+				</tr>
+				<tr>
+					<td>云联盟</td>
+					<td>OADT</td>
+					<td>蒋涛</td>
+					<td>服务器产品研发部</td>
+					<td>2013-05-06</td>
+					<td class="t-a-r"><a href="https://bugs.launchpad.net/coscl/+bug/1172651">就bug1172651作了一个回复...</a></td>
+				</tr>
+				<tr>
+					<td>云联盟</td>
+					<td>OADT</td>
+					<td>蒋涛</td>
+					<td>服务器产品研发部</td>
 					<td>2013-04-12</td>
 					<td class="t-a-r"><a href="https://lists.launchpad.net/coscl/msg00018.html">回答了一个OADT相关的问题...</a></td>
 				</tr>
@@ -153,14 +161,7 @@
 					<td>2013-3-20</td>
 					<td class="t-a-r"><a href="http://review.gluster.org/#/c/4700/">为修复bug提交代码2行</a></td>
 				</tr>
-				<tr>
-					<td>openstack</td>
-					<td>nova</td>
-					<td>叶钢</td>
-					<td>云方案部</td>
-					<td>2012-08-17</td>
-					<td class="t-a-r"><a href="https://launchpad.net/~gang-ye">注册launchpad</a></td>
-				</tr>
+				
 			</table>
 	</div>
 </div>
