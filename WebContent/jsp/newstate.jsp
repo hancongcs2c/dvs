@@ -5,9 +5,9 @@
 <jsp:include page="common/header.jsp"></jsp:include>
 
 <div class="hero-unit db">
-	<a class="rankTop"  href="<%=request.getContextPath() %>/data/rankData.action?community=openstack">
+	<%-- <a class="rankTop"  href="<%=request.getContextPath() %>/data/rankData.action?community=openstack">
 		<img alt="贡献Top!" src="<%=request.getContextPath() %>/img/ranking.png">
-	</a>
+	</a> --%>
 	<!--search form-->
 	<form class="boardform form-search" action="<%=request.getContextPath() %>/data/queryData.action?submitFlag=yes" method="post">
 		<input placeholder="搜索社区/项目" class="input-medium search-query" type="text" name="project" id="project" value="${sessionScope.project }">

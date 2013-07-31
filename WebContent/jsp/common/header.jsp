@@ -29,9 +29,9 @@
 								href="<%=request.getContextPath()%>/index.jsp#about">关于</a></li>
 							<li><a  rel="#contact"
 								href="<%=request.getContextPath()%>/index.jsp#contact">联系我们</a></li>
-							<li><a class="label label-info" href="<%=request.getContextPath()%>/data/queryData.action">近期数据</a></li>
-							
-							<li><a class="label label-info" href="<%=request.getContextPath()%>/news/queryNews.action">开源新闻</a></li>
+							<li><a class="label label-important" href="<%=request.getContextPath()%>/data/queryData.action">近期数据</a></li>
+							<li><a class="label label-info" href="http://stackalytics.com/">OpenStack Stackalytics</a></li>
+							<li><a class="label label-success" href="<%=request.getContextPath()%>/news/queryNews.action">开源新闻</a></li>
 						</ul>
 					</div>
 

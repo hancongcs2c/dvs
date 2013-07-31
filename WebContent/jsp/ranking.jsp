@@ -6,14 +6,15 @@
 <div class="hero-unit db rank">
 	<a class="close" href="<%=request.getContextPath() %>/data/queryData.action">&times;</a>
 	<div class="description">${param.community }</div>
-        <div id="example" class="k-content">
-            <div class="chart-wrapper">
-                <div id="chart"></div>
-            </div>
+    <div id="example" class="k-content">
+        <div class="chart-wrapper">
+            <div id="chart"></div>
         </div>
-        <div id="rankpie">
-        	<div id="data_source" style="display:none;">${dataSource}</div>
-        </div>
+    </div>
+    <div id="rankpie">
+    	<div id="data_source" style="display:none;">${dataSource}</div>
+    </div>
+    <div id="linkofsta"></div>
 </div>
 
 <jsp:include page="common/chartFooter.jsp"></jsp:include>
