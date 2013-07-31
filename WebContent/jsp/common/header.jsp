@@ -30,8 +30,8 @@
 							<li><a  rel="#contact"
 								href="<%=request.getContextPath()%>/index.jsp#contact">联系我们</a></li>
 							<li><a class="label label-important" href="<%=request.getContextPath()%>/data/queryData.action">近期数据</a></li>
-							<li><a class="label label-info" href="http://stackalytics.com/">OpenStack Stackalytics</a></li>
-							<li><a class="label label-success" href="<%=request.getContextPath()%>/news/queryNews.action">开源新闻</a></li>
+							<li><a class="label label-info" href="<%=request.getContextPath()%>/news/queryNews.action">开源新闻</a></li>
+							
 						</ul>
 					</div>
 
@@ -50,7 +50,7 @@
 								href="<%=request.getContextPath()%>/user/queryAllUser.action">管理通道</a>
 							<div class="navinfo">
 								<i class="icon-user icon-white"></i> <a
-									class="badge badge-important" id="navusername"  href="<%=request.getContextPath()%>/jsp/myboard.jsp"
+									class="badge" id="navusername"  href="<%=request.getContextPath()%>/jsp/myboard.jsp"
 									data-toggle="tooltip" data-placement="bottom" title
 									data-original-title="${sessionScope.departName}${sessionScope.userEmail }">
 										${sessionScope.userTruename}【${sessionScope.roleName}】
@@ -65,7 +65,7 @@
 								href="<%=request.getContextPath()%>/user/queryAllUser.action">管理通道</a>
 							<div class="navinfo">
 								<i class="icon-user icon-white"></i> <a
-									class="badge badge-important" id="navusername" href="<%=request.getContextPath()%>/jsp/myboard.jsp"
+									class="badge" id="navusername" href="<%=request.getContextPath()%>/jsp/myboard.jsp"
 									data-toggle="tooltip" data-placement="bottom" title
 									data-original-title="${sessionScope.departName}${sessionScope.userEmail }">
 										${sessionScope.userTruename}【${sessionScope.roleName}】

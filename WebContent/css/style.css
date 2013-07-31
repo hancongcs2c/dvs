@@ -12,7 +12,6 @@
   background: #ea4c89;
 }
 
-
 /*滚动条样式*/
 /* For the “inset” look only */
 
@@ -83,7 +82,7 @@ a{
 } */
 
 ul.nav li .label{
-	width:4em;
+	min-width:4em;
 	text-align:center;
 	border-radius:0;
 	-webkit-border-radius:0;
@@ -229,7 +228,13 @@ ul li .label-info.top{
 #push,#footer {
 	height: 60px;
 }
-
+.frilink{
+	margin-left:4em;
+	float:right;
+}
+.frilink a{
+	text-decoration:underline;
+}
 .tab-content.login {
 	padding-top: 3em;
 	padding-bottom: 3em;

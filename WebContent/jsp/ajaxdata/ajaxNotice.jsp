@@ -5,7 +5,7 @@
 <div class="article hero-unit span7">
 	<input type="hidden" id="noticeIdhidden" value="${noticeList[0].noticeId }">
 	<h4>${noticeList[0].noticeTitle}
-		<span class="time"><fmt:formatDate value="${notice.noticeCredate}" pattern="yyyy-MM-dd"/>
+		<span class="time">最近更新：<fmt:formatDate value="${notice.noticeCredate}" pattern="yyyy-MM-dd"/>
 			<c:if test="${sessionScope.roleId==1}">
 			<a href="#updateNotice" role="button" data-toggle="modal" title="编辑"><i class="icon-edit"></i></a>
 				

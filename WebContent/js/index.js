@@ -55,7 +55,9 @@ $(function() {
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////
 	//公告
-	
+	$(".indexpannotice").ajaxSend(function(e,xhr,opt){
+	    $(this).html("正在努力地为您加载... ...:)" + opt.url);
+	  });
 	$('.indexpannotice').load("/dvs/notice/queryAllNotice.action",function(e){noticenimei();});
 	$('#updateNotice').modal({
 		show : false
@@ -70,11 +72,17 @@ $(function() {
 		});
 		
 		//删除
+		
+		
 		$('.delNote').click(function(e){
-			
-			var noticeId = $('.article #noticeIdhidden').val();
-			location.href="/dvs/notice/deleteNotice.action?noticeId="+noticeId;
-			
+			if(window.confirm('您确定要删除此文章吗？')){
+				var noticeId = $('#noticeIdhidden').val();
+				location.href="/dvs/notice/deleteNotice.action?noticeId="+noticeId;		
+                return true;
+             }else{
+                return false;
+            }
+			noticenimei2();
 			noticenimei();
 		});
 		

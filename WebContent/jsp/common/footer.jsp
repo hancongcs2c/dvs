@@ -19,6 +19,10 @@
     	<div class="container">
         	<p class="muted credit">
             	<a href="http://www.cs2c.com.cn">中标软件有限公司</a>--开源社区部&copy;2013
+            	<span class="frilink">资源链接：
+            		<a href="http://stackalytics.com/" target="_blank">OpenStack Stackalytics</a>
+            	</span>
+            	<span class="clear"></span>
             </p>
         </div>
     </div>
