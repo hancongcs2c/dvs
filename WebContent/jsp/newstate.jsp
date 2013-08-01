@@ -27,13 +27,13 @@
 		<!-- ajax加载sum数据表 -->
 		</div>
 		<table class="table table-hover newstate">
-		<tr><td colspan="9"><p class="muted">搜索结果：总共为您找出<strong>${pager.recordCount}</strong>条数据，
+		<tr><td colspan="9"><p class="ttext-info">搜索结果：总共为您找出<strong>${pager.recordCount}</strong>条数据，
 		<strong>${pager.pageCount }</strong>页。
 		其中包含<strong>${coms }</strong>个社区，
 		<strong>${pros }</strong>个项目，
 		<strong>${employers}</strong>个公司,
 		<strong>${developers}</strong>名贡献者;
-		代码添加$<strong>{addeds}</strong>行，
+		代码添加<strong>${addeds}</strong>行，
 		删除<strong>${removeds}</strong>行，
 		提交<strong>${csets }</strong>次。</p></td></tr>
 			<tr class="active">

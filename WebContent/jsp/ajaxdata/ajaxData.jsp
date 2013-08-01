@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page import="com.cs2c.dvs.pojo.Data"%>
 <table class="table table-condensed" id="sumDataTable">
-<tr><td colspan="7">当前中标软件对开源社区贡献代码数据概览：</td></tr>
+<tr><td colspan="7"><p class="ttext-info">当前<strong>中标软件</strong>对开源社区贡献代码数据概览：</p></td></tr>
 <tr class="active">
 	<th>Community</th>
 	<th>Project</th>
