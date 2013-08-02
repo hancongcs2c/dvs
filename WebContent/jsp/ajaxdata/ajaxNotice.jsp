@@ -5,7 +5,7 @@
 <div class="article hero-unit span7">
 	<input type="hidden" id="noticeIdhidden" value="${noticeList[0].noticeId }">
 	<h4>${noticeList[0].noticeTitle}
-		<span class="time">最近更新：<fmt:formatDate value="${notice.noticeUpdate}" pattern="yyyy-MM-dd"/>
+		<span class="time"><fmt:formatDate value="${noticeList[0].noticeUpdate}" pattern="yyyy-MM-dd"/>更新 by ${noticeList[0].noticeAuthor }
 			<c:if test="${sessionScope.roleId==1}">
 			<a href="#updateNotice" role="button" data-toggle="modal" title="编辑"><i class="icon-edit"></i></a>
 				
@@ -22,7 +22,7 @@
 	<ul class="hero-unit">
 		<h5>最新公告
 			<c:if test="${sessionScope.roleId==1}">
-			<a class="btn-link" id="addNotehref" href="#addNotice" role="button" data-toggle="modal" title="添加社区">
+			<a class="btn-link" id="addNotehref" href="#addNotice" role="button" data-toggle="modal" title="添加公告">
 			<i class="icon-plus"></i>新建
 			</a>
 			</c:if>

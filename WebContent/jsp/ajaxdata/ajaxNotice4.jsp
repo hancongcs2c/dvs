@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ page import="com.cs2c.dvs.pojo.Notice"%>
 <input type="hidden" id="noticeIdhidden" name="noticeId" value="${notice.noticeId }">
+<input type="hidden" id="noticeAuhidden" name="noticeAuthor" value="${sessionScope.userTruename}">
 <div class="control-group">
 		<input class="span8" type="text" id="inputnoticeTitle" name="noticeTitle"
 			value="${notice.noticeTitle }">

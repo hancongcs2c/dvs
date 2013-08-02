@@ -18,7 +18,7 @@
 			<div class="modal-body">
 				<div class="narrowpanel">
 					<form class="form-horizontal" action="<%=request.getContextPath() %>/notice/addNotice.action" method="post">
-					
+					<input type="hidden" id="noticeAuhidden" name="noticeAuthor" value="${sessionScope.userTruename}">
 					<div class="control-group">
 							<input class="span8" type="text" id="noticeTitle" name="noticeTitle"
 								placeholder="请在这里填写标题">

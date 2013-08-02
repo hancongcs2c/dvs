@@ -89,6 +89,7 @@ public class NoticeAction extends BaseAction {
 	public String queryNoticeById(){
 		try {
 			notice = service.queryNoticeById(noticeId);
+			System.out.println(")))))))"+notice.getNoticeAuthor());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
