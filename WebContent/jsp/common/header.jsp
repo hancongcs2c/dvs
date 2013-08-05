@@ -50,7 +50,7 @@
 								href="<%=request.getContextPath()%>/user/queryAllUser.action">管理通道</a>
 							<div class="navinfo">
 								<i class="icon-user icon-white"></i> <a
-									class="badge" id="navusername"  href="<%=request.getContextPath()%>/jsp/myboard.jsp"
+									class="badge" id="navusername" 
 									data-toggle="tooltip" data-placement="bottom" title
 									data-original-title="${sessionScope.departName}${sessionScope.userEmail }">
 										${sessionScope.userTruename}【${sessionScope.roleName}】
@@ -61,11 +61,9 @@
 						<c:otherwise>
 							<a class="btn-link reg"
 								href="<%=request.getContextPath()%>/logout.action">退出</a>
-							<a class="btn-link reg" id="admingrep" 
-								href="<%=request.getContextPath()%>/user/queryAllUser.action">管理通道</a>
 							<div class="navinfo">
 								<i class="icon-user icon-white"></i> <a
-									class="badge" id="navusername" href="<%=request.getContextPath()%>/jsp/myboard.jsp"
+									class="badge" id="navusername" 
 									data-toggle="tooltip" data-placement="bottom" title
 									data-original-title="${sessionScope.departName}${sessionScope.userEmail }">
 										${sessionScope.userTruename}【${sessionScope.roleName}】

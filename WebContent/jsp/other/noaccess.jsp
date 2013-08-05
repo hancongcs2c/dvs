@@ -10,7 +10,7 @@
 			<p class="text-warning">系统觉得，您可以换个方式操作...π_π，或许您可以：</p>
 			<p class="text-success">1、直接<a href="javascript:history.back()">戳这里返回&gt;&gt;</a></p>
 			<p class="text-success">2、如果您认为这样很不方便，请<a href="<%=request.getContextPath() %>/index.jsp#contact">联系我们</a>:P</p>
-			<p class="errormsg">:)</p>
+			<p class="errormsg">:(</p>
 		</div>
 	</div>
 </div>

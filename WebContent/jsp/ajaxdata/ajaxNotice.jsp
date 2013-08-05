@@ -6,7 +6,7 @@
 	<input type="hidden" id="noticeIdhidden" value="${noticeList[0].noticeId }">
 	<h4>${noticeList[0].noticeTitle}
 		<span class="time"><fmt:formatDate value="${noticeList[0].noticeUpdate}" pattern="yyyy-MM-dd"/>更新 by ${noticeList[0].noticeAuthor }
-			<c:if test="${sessionScope.roleId==1}">
+			<c:if test="${sessionScope.userTruename==notice.noticeAuthor}">
 			<a href="#updateNotice" role="button" data-toggle="modal" title="编辑"><i class="icon-edit"></i></a>
 				
 			</c:if>
@@ -14,14 +14,14 @@
 	<div>${noticeList[0].noticeBody}
 	</div>
 	<hr />
-	<c:if test="${sessionScope.roleId==1}">
+	<c:if test="${sessionScope.userTruename==notice.noticeAuthor}">
 		<a class="btn-link  delNote" title="删除">删除此篇</a>
 	</c:if>
 </div>
 <div class="note span3">	
 	<ul class="hero-unit">
 		<h5>最新公告
-			<c:if test="${sessionScope.roleId==1}">
+			<c:if test="${sessionScope.userTruename!=null}">
 			<a class="btn-link" id="addNotehref" href="#addNotice" role="button" data-toggle="modal" title="添加公告">
 			<i class="icon-plus"></i>新建
 			</a>

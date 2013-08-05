@@ -102,12 +102,6 @@
 	
 	<filter-mapping>
 		<filter-name>adminFilter</filter-name>
-		<url-pattern>/notice/addNotice.action</url-pattern>
-		<url-pattern>/notice/deleteNotice.action</url-pattern>
-		<url-pattern>/notice/updateNotice.action</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>adminFilter</filter-name>
 		<url-pattern>/label/addLabel.action</url-pattern>
 		<url-pattern>/label/deleteLabel.action</url-pattern>
 		<url-pattern>/label/updateLabel.action</url-pattern>		

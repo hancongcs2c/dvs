@@ -6,7 +6,7 @@
 
 	<package name="login" namespace="/" extends="quickValidation">
 		<action name="login" class="userAction" method="login">
-			<result name="success" type="redirectAction">
+			<result name="success">
 				<param name="namespace">/user</param>
 				<param name="actionName">queryAllUser</param>
 			</result>
@@ -14,10 +14,7 @@
 		</action>
 		
 		<action name="userLogin" class="userAction" method="userLogin">
-			<result name="success" type="redirectAction">
-				<param name="namespace">/user</param>
-				<param name="actionName">queryAllUser</param>
-			</result>
+			<result name="success">/index.jsp</result>
 			<result name="error">/login.jsp</result>
 		</action>
 

@@ -6,7 +6,7 @@
 
 <h4>${notice.noticeTitle}
 	<span class="time"><fmt:formatDate value="${notice.noticeUpdate}" pattern="yyyy-MM-dd"/>更新 by ${notice.noticeAuthor }
-	<c:if test="${sessionScope.roleId==1}">
+	<c:if test="${sessionScope.userTruename==notice.noticeAuthor}">
 	<a href="#updateNotice" role="button" data-toggle="modal" title="编辑"><i class="icon-edit"></i></a>
 		
 	</c:if>
@@ -14,6 +14,6 @@
 </h4>
 <div id="notice_now">${notice.noticeBody}
 </div><hr />
-<c:if test="${sessionScope.roleId==1}">
+<c:if test="${sessionScope.userTruename==notice.noticeAuthor}">
 <a class="btn-link delNote" title="删除">删除此篇</a>
 </c:if>

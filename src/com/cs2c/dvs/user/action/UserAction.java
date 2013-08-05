@@ -216,7 +216,6 @@ public class UserAction extends BaseAction implements Action {
 			ActionContext context = ActionContext.getContext();
 
 			userMap = service.isValidate(userEmail, userPassword);
-			System.out.println("usermap:" + userMap);
 
 			if (userMap != null) {
 				context.getSession()
@@ -247,7 +246,6 @@ public class UserAction extends BaseAction implements Action {
 			ActionContext context = ActionContext.getContext();
 
 			userMap = service.isUserValidate(userEmail, userPassword);
-			//System.out.println("usermap:" + userMap);
 
 			if (userMap != null) {
 				context.getSession()
@@ -302,7 +300,6 @@ public class UserAction extends BaseAction implements Action {
 			departList = departService.queryAllDepart();
 			pager = new Pager(service.getCount(departIdStr), pageNum);
 			userList = service.queryAllUser(pager, departIdStr);
-			// System.out.println(service.queryAllUser(pager,departIdStr).size());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			pageNum = 1;
@@ -315,9 +312,7 @@ public class UserAction extends BaseAction implements Action {
 	/*
 	 * 添加用户同时分配角色
 	 */
-	@common.validation.FormValidator(input = "paraNull", value = "userEmail,nimemei,required validate-email;"
-			+ "userTruename,nimeime-name,required validate-chinese;"
-			+ "userPassword,密码,required")
+
 	public String addUser() throws Exception {
 		userCredate = new Date();
 		userUpdate = new Date();
@@ -325,8 +320,7 @@ public class UserAction extends BaseAction implements Action {
 			User user = new User(userId, this.userEmail, this.getUserTruename(),
 				this.departId, this.userPassword, userCredate, userUpdate);
 			service.addUser(user, roleId, userEmail);
-			// System.out.println("^^^Action:departId" +departId + "user:"+
-			// user.toString());
+			
 			return "addUser";		
 	}
 
@@ -344,10 +338,8 @@ public class UserAction extends BaseAction implements Action {
 			out = this.servletResponse.getWriter();
 			User user = service.queryByEmail(userEmail);
 			if (user == null) {
-				// System.out.println("Email不存在，可以使用"+userEmail);
 				out.write("true");
 			} else {
-				// System.out.println("Email存在，不可以使用"+userEmail);
 				out.write("false");
 			}
 		} catch (IOException e1) {
@@ -392,8 +384,6 @@ public class UserAction extends BaseAction implements Action {
 		return "queryUserById";
 	}
 
-	@common.validation.FormValidator(input = "paraNull", value = "userEmail,nimemei,required validate-email;"
-			+ "userTruename,nimeime-name,required validate-chinese")
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public String updateUser() {
 		HashMap userMap = new HashMap();
@@ -403,7 +393,6 @@ public class UserAction extends BaseAction implements Action {
 		userMap.put("departId", departId);
 		userMap.put("userUpdate", new Date());
 		userMap.put("roleId", roleId);
-		// System.out.println(userMap);
 
 		try {
 			service.updateUser(userMap);
