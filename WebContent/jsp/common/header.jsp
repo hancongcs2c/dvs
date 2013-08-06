@@ -31,7 +31,7 @@
 								href="<%=request.getContextPath()%>/index.jsp#contact">联系我们</a></li>
 							<li><a class="label label-important" href="<%=request.getContextPath()%>/data/queryData.action">近期数据</a></li>
 							<li><a class="label label-info" href="<%=request.getContextPath()%>/news/queryNews.action">开源新闻</a></li>
-							
+							<li><a href="<%=request.getContextPath()%>/osranking.jsp">stackalytics</a></li>
 						</ul>
 					</div>
 

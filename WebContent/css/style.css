@@ -397,6 +397,21 @@ tr.dimissionUser *{
 .hero-unit.rank .close:hover {
 	opacity: 1;
 }
+.hero-unit.rank{
+	overflow:hidden;
+	padding:2em 2.5em;
+}
+
+.rank #staframe{
+	border:0;
+	width:100%;
+	height:1700px;
+	overflow:hidden;
+}
+.rank #staframe #footer{
+	display:none;
+}
+
 #ranklog{
 	padding:1em;
 	height:auto;
@@ -410,9 +425,7 @@ tr.dimissionUser *{
 #ranklog table tbody{
 	margin:1em;
 }
-.hero-unit.rank{
-	padding-top:0;
-}
+
 /*********社区动态新闻*********/
 .hero-unit.comm {
 	padding: 0.7em 1.5em;

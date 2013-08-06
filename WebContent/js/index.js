@@ -1,6 +1,6 @@
 // JavaScript Document
-$(function() {	
 
+$(function() {
 	//加载统计数据表头
 	$('#sumtables').load('/dvs/data/querySumData.action');
 	
