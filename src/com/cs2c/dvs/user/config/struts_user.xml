@@ -6,7 +6,7 @@
 
 	<package name="login" namespace="/" extends="quickValidation">
 		<action name="login" class="userAction" method="login">
-			<result name="success">
+			<result name="success" type="redirectAction">
 				<param name="namespace">/user</param>
 				<param name="actionName">queryAllUser</param>
 			</result>
