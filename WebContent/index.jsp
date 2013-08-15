@@ -6,7 +6,7 @@
         	<div class="indexpannotice">
         		<!-- 此处内容ajax加载 -->
         	</div>
-        	
+        		
             <!-- 添加公告 -->
             <div id="addNotice" class="modal hide fade commu addComModal" tabindex="-1"
 			role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -70,7 +70,9 @@
                 近期数据</a>展示了中标软件研发人员在各开源社区的贡献情形，
                 <a href="<%=request.getContextPath()%>/dvs/news/queryNews.action">开源新闻</a>抓取了一些开源社区的动态新闻。
                 公司开源社区相关的信息将及时在
-                <a href="<%=request.getContextPath()%>/dvs/index.jsp#notice">公告</a>中贴出。
+                <a href="<%=request.getContextPath()%>/dvs/index.jsp#notice">广而告之</a>中贴出，
+                同时，本平台设置了<a href="<%=request.getContextPath()%>/tucao.jsp">开源吐槽</a>栏目，
+                鼓励访客说出自己的想法。
                 </p>
                 <p>
                 	如有对本平台任何建议，可发送邮件给开源社区部<a href="mailto:cong.han@cs2c.com.cn" title="mailto:cong.han@cs2c.com.cn">韩聪</a>。
@@ -116,6 +118,7 @@
                 </div>
               </div>
             </form>
+            
             </div>
         </div>
     <jsp:include page="jsp/common/footer.jsp"></jsp:include>

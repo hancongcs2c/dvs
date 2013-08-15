@@ -3,7 +3,7 @@ package com.cs2c.dvs.common;
 public class Pager{
 
 	private int recordCount;// 总记录数
-	private int pageSize = 10;// 每页记录条数
+	private int pageSize = 25;// 每页记录条数
 	private int pageCount;// 总页数
 	private int pageNum;// 页码
 	private String pageMsg;

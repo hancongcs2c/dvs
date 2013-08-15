@@ -7,6 +7,9 @@ $(function() {
 	$('.cs2c').click(function(e){
 		$(this).prev('input').val('cs2c');
 	});
+	//加载cs2c手动
+	$('#cs2cState').load('/dvs/notice/queryAllNotice2.action');
+	
 	//加载排行html
 	$('#ranklog').load('/dvs/html/cinder-result-20.html');
 	$('#ranklog table').addClass('span3');

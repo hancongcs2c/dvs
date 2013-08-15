@@ -4,8 +4,19 @@
 <input type="hidden" id="noticeIdhidden" name="noticeId" value="${notice.noticeId }">
 <input type="hidden" id="noticeAuhidden" name="noticeAuthor" value="${sessionScope.userTruename}">
 <div class="control-group">
-		<input class="span8" type="text" id="inputnoticeTitle" name="noticeTitle"
+		<c:choose>
+		<c:when test="${notice.noticeTitle=='cs2cState' }">
+			<input class="span8" type="text" id="inputnoticeTitle" name="noticeTitle"
+			value="${notice.noticeTitle }" disabled>
+		</c:when>
+		<c:otherwise>
+			<input class="span8" type="text" id="inputnoticeTitle" name="noticeTitle"
 			value="${notice.noticeTitle }">
+		</c:otherwise>
+		</c:choose>	
+
+
+		
 		<span class="help help-inline" id="cn"></span>
 </div>
 
